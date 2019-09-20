@@ -1,0 +1,11 @@
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\bin\Debug\netcoreapp2.2\visio_test_app.deps.json
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\bin\Debug\netcoreapp2.2\visio_test_app.runtimeconfig.json
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\bin\Debug\netcoreapp2.2\visio_test_app.runtimeconfig.dev.json
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\bin\Debug\netcoreapp2.2\visio_test_app.dll
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\bin\Debug\netcoreapp2.2\visio_test_app.pdb
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\obj\Debug\netcoreapp2.2\visio_test_app.csprojAssemblyReference.cache
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\obj\Debug\netcoreapp2.2\visio_test_app.csproj.CoreCompileInputs.cache
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\obj\Debug\netcoreapp2.2\visio_test_app.AssemblyInfoInputs.cache
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\obj\Debug\netcoreapp2.2\visio_test_app.AssemblyInfo.cs
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\obj\Debug\netcoreapp2.2\visio_test_app.dll
+C:\Users\westb\source\repos\visio_test_app\visio_test_app\obj\Debug\netcoreapp2.2\visio_test_app.pdb
