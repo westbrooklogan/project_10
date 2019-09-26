@@ -1,0 +1,372 @@
+{
+  "Levels": [
+    "Workstream",
+    "Portfolio",
+    "L1 Business Process",
+    "L2 Business Process",
+    "L3 Business Process"
+  ],
+
+  "Content": [
+    {
+      "Name": "Finanace, SC&P",
+      "Children": [
+        {
+          "Name": "Finance",
+          "Children": [
+            {
+              "Name": "Order to Cash",
+              "Children": [
+                {
+                  "Name": "Order Management",
+                  "Children": [
+                    {
+                      "Name": "Contract Management",
+                      "Children": [
+                        {
+                          "Name": "Receive Orders",
+                          "Children": [
+                            {
+                              "Name": "Pricing Management",
+                              "Children": [
+                                {
+                                  "Name": "Project Accounting and Control",
+                                  "Children": [
+                                    {
+                                      "Name": "Project Setup"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Customer Billing & Collection",
+                  "Children": [
+                    {
+                      "Name": "Invoice & Billing",
+                      "Children": [
+                        {
+                          "Name": "Debt Collection",
+                          "Children": [
+                            {
+                              "Name": "Apply Cash",
+                              "Children": [
+                                {
+                                  "Name": "AR Management",
+                                  "Children": [
+                                    {
+                                      "Name": "Tax Calculations for Invoicing and Billing"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Revenue Recognition",
+                  "Children": [
+                    {
+                      "Name": "Deferred Revenue",
+                      "Children": [
+                        {
+                          "Name": "Unbilled Revenue Analysis"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Master Data",
+                  "Children": [
+                    {
+                      "Name": "Master Data (Sales, Orders, Customers)",
+                      "Children": [
+                        {
+                          "Name": "Transactional Data (Open AR, Billing)"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Reporting",
+                  "Children": [
+                    {
+                      "Name": "Analytics"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Supply Chain and Purchasing (SC&P)",
+          "Children": [
+            {
+              "Name": "Procure to Pay",
+              "Children": [
+                {
+                  "Name": "Procure Material & Services",
+                  "Children": [
+                    {
+                      "Name": "Develop Sourcing Strategy",
+                      "Children": [
+                        {
+                          "Name": "Select Supplier",
+                          "Children": [
+                            {
+                              "Name": "Order Material and Services",
+                              "Children": [
+                                {
+                                  "Name": "Manage Suppliers",
+                                  "Children": [
+                                    {
+                                      "Name": "Receive Goods",
+                                      "Children": [
+                                        {
+                                          "Name": "Asset Management",
+                                          "Children": [
+                                            {
+                                              "Name": "Leasing"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Cost Management",
+                  "Children": [
+                    {
+                      "Name": "Perform Cost Accounting and Control",
+                      "Children": [
+                        {
+                          "Name": "Perform Cost Management"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Process Accounts Payables",
+                  "Children": [
+                    {
+
+                      "Name": "Verify AP Pay File with PO vendor Master File",
+                      "Children": [
+                        {
+                          "Name": "Create AP Transaction in AP System",
+                          "Children": [
+                            {
+                              "Name": "Process Payments",
+                              "Children": [
+                                {
+                                  "Name": "Process Financial Accruals and Reversals",
+                                  "Children": [
+                                    {
+                                      "Name": "Create/Adjust Accounting Records",
+                                      "Children": [
+                                        {
+                                          "Name": "Process 1099 Reporting",
+                                          "Children": [
+                                            {
+                                              "Name": "Develop Tax Strategy and Plan"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Process Expense Reimbursements",
+                  "Cotent": [
+                    {
+                      "Name": "Export Expense Report",
+                      "Children": [
+                        {
+                          "Name": "Approvals",
+                          "Children": [
+                            {
+                              "Name": "Audit Expense Reports"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Master Data",
+                  "Children": [
+                    {
+                      "Name": "Master Data (Vendors)",
+                      "Children": [
+                        {
+                          "Name": "Transactional Data (Open POs, Invoices)"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Finance",
+          "Children": [
+            {
+              "Name": "Record to Report",
+              "Children": [
+                {
+                  "Name": "Perform Planning and Management Accounting",
+                  "Children": [
+                    {
+                      "Name": "Develop Budget Policies and Procedures",
+                      "Children": [
+                        {
+
+                          "Name": "Prepare/Update Periodic Budgets and Plans",
+                          "Children": [
+                            {
+
+                              "Name": "Prepare Periodic Financial Forecasts",
+                              "Children": [
+                                {
+                                  "Name": "Perform Variance Analysis"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Perform General Accounting",
+                  "Children": [
+                    {
+                      "Name": "Chart of Accounts/Indirect Pools",
+                      "Children": [
+                        {
+                          "Name": "Journal Entries",
+                          "Children": [
+                            {
+                              "Name": "Close Process and Reconciliations",
+                              "Children": [
+                                {
+                                  "Name": "Consolidation and Inter-Company",
+                                  "Children": [
+                                    {
+                                      "Name": "Payroll",
+                                      "Children": [
+                                        {
+                                          "Name": "T&E",
+                                          "Children": [
+                                            {
+                                              "Name": "Time and Attendance"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Perform Reporting",
+                  "Children": [
+                    {
+                      "Name": "Perform Internal Management Reporting",
+                      "Children": [
+                        {
+                          "Name": "Perform External financial Reporting"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Manage Treasury Operations",
+                  "Children": [
+                    {
+                      "Name": "Manage Treasury Policies and Procedures",
+                      "Children": [
+                        {
+                          "Name": "Manage Cash",
+                          "Children": [
+                            {
+                              "Name": "Manage In-House Bank Accounts",
+                              "Children": [
+                                {
+                                  "Name": "Manage Debt and Investments"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Corporate Tax",
+                  "Children": [
+                    {
+                      "Name": "Corporate Tax and Regulatory Compliance",
+                      "Children": [
+                        {
+                          "Name": "State & Local Tax"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+
+}
