@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisioDocument xmlns="http://schemas.microsoft.com/office/visio/2011/1/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xml:space="preserve">
+  <FaceNames>
+    <FaceName NameU="Calibiri" />
+  </FaceNames>
+  <StyleSheets>
+    <StyleSheet ID="0" NameU="No Style" Name="No Style">
+      <Cell N="EnableLineProps" V="1" />
+      <Cell N="EnableFillProps" V="1" />
+      <Cell N="EnableTextProps" V="1" />
+      <Cell N="LineWeight" V="0.01041666666666667" />
+      <Cell N="LineColor" V="0" />
+      <Cell N="LinePattern" V="1" />
+      <Cell N="FillForegnd" V="1" />
+      <Cell N="FillPattern" V="1" />
+      <Cell N="VerticalAlign" V="1" />
+      <Section N="Character">
+        <Row IX="0">
+          <Cell N="Font" V="Calibri" />
+          <Cell N="Color" V="0" />
+          <Cell N="FontScale" V="1" />
+          <Cell N="Size" V="0.1666666666666667" />
+        </Row>
+      </Section>
+      <Section N="Paragraph">
+        <Row IX="0">
+          <Cell N="IndFirst" V="0" />
+          <Cell N="IndLeft" V="0" />
+          <Cell N="IndRight" V="0" />
+          <Cell N="SpLine" V="-1.2" />
+          <Cell N="HorzAlign" V="1" />
+          <Cell N="Bullet" V="0" />
+          <Cell N="BulletStr" V="" />
+          <Cell N="BulletFont" V="0" />
+          <Cell N="BulletFontSize" V="-1" />
+          <Cell N="TextPosAfterBullet" V="0" />
+          <Cell N="Flags" V="0" />
+        </Row>
+      </Section>
+      <Section N="Tabs">
+        <Row IX="0" />
+      </Section>
+    </StyleSheet>
+  </StyleSheets>
+  <DocumentSheet NameU="TheDoc" Name="TheDoc" LineStyle="0" FillStyle="0" TextStyle="0">
+    <Cell N="DocLangID" V="en-US" />
+  </DocumentSheet>
+</VisioDocument>

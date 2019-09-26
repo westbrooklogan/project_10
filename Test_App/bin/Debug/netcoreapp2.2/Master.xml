@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MasterContents xmlns="http://schemas.microsoft.com/office/visio/2011/1/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xml:space="preserve">
+  <Shapes ID="5" Type="Shape" LineStyle="3" FillStyle="3" TextStyle="3">
+    <Cell N="PinX" V="1" />
+    <Cell N="PinY" V="0.5" />
+    <Cell N="Width" V="2" />
+    <Cell N="Height" V="1" />
+    <Cell N="LocPinX" V="1" />
+    <Cell N="LocPinY" V="0.5" />
+    <Cell N="Angle" V="0" />
+    <Cell N="FillForegnd" V="#0070c0" />
+    <Cell N="FillBkgnd" V="#000000" />
+    <Section N="Geometry" IX="0">
+      <Cell N="NoFill" V="0" />
+      <Cell N="NoLine" V="0" />
+      <Cell N="NoShow" V="0" />
+      <Row T="RelMoveTo" IX="1">
+        <Cell N="X" V="0" />
+        <Cell N="Y" V="0" />
+      </Row>
+      <Row T="RelMoveTo" IX="2">
+        <Cell N="X" V="1" />
+        <Cell N="Y" V="0" />
+      </Row>
+      <Row T="RelMoveTo" IX="3">
+        <Cell N="X" V="1" />
+        <Cell N="Y" V="1" />
+      </Row>
+      <Row T="RelMoveTo" IX="4">
+        <Cell N="X" V="0" />
+        <Cell N="Y" V="1" />
+      </Row>
+      <Row T="RelMoveTo" IX="5">
+        <Cell N="X" V="0" />
+        <Cell N="Y" V="0" />
+      </Row>
+    </Section>
+    <Text>Sample Text</Text>
+  </Shapes>
+</MasterContents>

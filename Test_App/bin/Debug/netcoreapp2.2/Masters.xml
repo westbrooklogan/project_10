@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Masters xmlns="http://schemas.microsoft.com/office/visio/2011/1/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xml:space="preserve">
+  <Master ID="2" UniqueID="{0020640D-0002-0000-8E40-00608CF305B2}" BaseID="{{8FEBAF3E-100E-46A7AFB4-6F1C4D75A7A7}" PatternFlags="0">
+    <PageSheet LineStyle="0" TextStyle="0">
+      <Cell N="PageWidth" V="2" />
+      <Cell N="PageHeight" V="1" />
+      <Cell N="PageScale" V="1" />
+      <Cell N="DrawingScale" V="1" />
+      <Rel r:id="rId1" />
+    </PageSheet>
+  </Master>
+</Masters>
