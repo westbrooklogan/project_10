@@ -9,4 +9,14 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="XmlUri">
+      <HintPath>..\..\XmlUri\XmlUri\obj\Debug\netstandard2.0\XmlUri.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
