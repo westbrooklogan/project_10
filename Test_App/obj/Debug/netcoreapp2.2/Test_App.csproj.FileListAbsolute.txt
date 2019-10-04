@@ -1,0 +1,14 @@
+C:\Users\westb\source\repos\Test_App\Test_App\bin\Debug\netcoreapp2.2\Test_App.deps.json
+C:\Users\westb\source\repos\Test_App\Test_App\bin\Debug\netcoreapp2.2\Test_App.runtimeconfig.json
+C:\Users\westb\source\repos\Test_App\Test_App\bin\Debug\netcoreapp2.2\Test_App.runtimeconfig.dev.json
+C:\Users\westb\source\repos\Test_App\Test_App\bin\Debug\netcoreapp2.2\Test_App.dll
+C:\Users\westb\source\repos\Test_App\Test_App\obj\Debug\netcoreapp2.2\Test_App.csproj.CoreCompileInputs.cache
+C:\Users\westb\source\repos\Test_App\Test_App\obj\Debug\netcoreapp2.2\Test_App.AssemblyInfoInputs.cache
+C:\Users\westb\source\repos\Test_App\Test_App\obj\Debug\netcoreapp2.2\Test_App.AssemblyInfo.cs
+C:\Users\westb\source\repos\Test_App\Test_App\bin\Debug\netcoreapp2.2\Test_App.pdb
+C:\Users\westb\source\repos\Test_App\Test_App\obj\Debug\netcoreapp2.2\Test_App.dll
+C:\Users\westb\source\repos\Test_App\Test_App\obj\Debug\netcoreapp2.2\Test_App.pdb
+C:\Users\westb\source\repos\Test_App\Test_App\bin\Debug\netcoreapp2.2\XmlUri.dll
+C:\Users\westb\source\repos\Test_App\Test_App\bin\Debug\netcoreapp2.2\XmlUri.pdb
+C:\Users\westb\source\repos\Test_App\Test_App\obj\Debug\netcoreapp2.2\Test_App.csproj.CopyComplete
+C:\Users\westb\source\repos\Test_App\Test_App\obj\Debug\netcoreapp2.2\Test_App.csprojAssemblyReference.cache
