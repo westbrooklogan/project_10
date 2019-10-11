@@ -10,30 +10,39 @@
   "Content": [
     {
       "Name": "Finanace, SC&P",
+	  "Status": "Workstream",
       "Children": [
         {
           "Name": "Finance",
+		  "Status": "Portfolio",
           "Children": [
             {
               "Name": "Order to Cash",
+			  "Status": "L1 Business Process",
               "Children": [
                 {
                   "Name": "Order Management",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Contract Management",
+					  "Status": "Medium Maturity",
                       "Children": [
                         {
                           "Name": "Receive Orders",
+						  "Status": "Medium Maturity",
                           "Children": [
                             {
                               "Name": "Pricing Management",
+							  "Status": "Medium Maturity",
                               "Children": [
                                 {
                                   "Name": "Project Accounting and Control",
+								  "Status": "Low Maturity",
                                   "Children": [
                                     {
-                                      "Name": "Project Setup"
+                                      "Name": "Project Setup",
+									  "Status": "Undefined"
                                     }
                                   ]
                                 }
@@ -47,21 +56,27 @@
                 },
                 {
                   "Name": "Customer Billing & Collection",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Invoice & Billing",
+					  "Status": "Low Maturity",
                       "Children": [
                         {
                           "Name": "Debt Collection",
+						  "Status": "Medium Maturity",
                           "Children": [
                             {
                               "Name": "Apply Cash",
+							  "Status": "Medium Maturity",
                               "Children": [
                                 {
                                   "Name": "AR Management",
+								  "Status": "Medium Maturity",
                                   "Children": [
                                     {
-                                      "Name": "Tax Calculations for Invoicing and Billing"
+                                      "Name": "Tax Calculations for Invoicing and Billing",
+									  "Status": "Medium Maturity"
                                     }
                                   ]
                                 }
@@ -75,12 +90,21 @@
                 },
                 {
                   "Name": "Revenue Recognition",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
-                      "Name": "Deferred Revenue",
+                      "Name": "Revenue Recognition",
+					  "Status": "Undefined",
                       "Children": [
                         {
-                          "Name": "Unbilled Revenue Analysis"
+                          "Name": "Deferred Revenue",
+						  "Status": "Low Maturity",
+						  "Children": [
+							{
+								"Name": "Unbilled Revenue Analysis",
+								"Status": "Low Maturity"
+							}
+						  ]
                         }
                       ]
                     }
@@ -88,12 +112,15 @@
                 },
                 {
                   "Name": "Master Data",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Master Data (Sales, Orders, Customers)",
+					  "Status": "Low Maturity",
                       "Children": [
                         {
-                          "Name": "Transactional Data (Open AR, Billing)"
+                          "Name": "Transactional Data (Open AR, Billing)",
+						  "Status": "Low Maturity"
                         }
                       ]
                     }
@@ -101,9 +128,11 @@
                 },
                 {
                   "Name": "Reporting",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
-                      "Name": "Analytics"
+                      "Name": "Analytics",
+					  "Status": "Out of Scope"
                     }
                   ]
                 }
@@ -113,33 +142,43 @@
         },
         {
           "Name": "Supply Chain and Purchasing (SC&P)",
+		  "Status": "Portfolio",
           "Children": [
             {
               "Name": "Procure to Pay",
+			  "Status": "L1 Business Process",
               "Children": [
                 {
                   "Name": "Procure Material & Services",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Develop Sourcing Strategy",
+					  "Status": "Low Maturity",
                       "Children": [
                         {
                           "Name": "Select Supplier",
+						  "Status": "Low Maturity",
                           "Children": [
                             {
                               "Name": "Order Material and Services",
+							  "Status": "Low Maturity",
                               "Children": [
                                 {
                                   "Name": "Manage Suppliers",
+								  "Status": "Low Maturity",
                                   "Children": [
                                     {
                                       "Name": "Receive Goods",
+									  "Status": "Low Maturity",
                                       "Children": [
                                         {
                                           "Name": "Asset Management",
+										  "Status": "Undefined",
                                           "Children": [
                                             {
-                                              "Name": "Leasing"
+                                              "Name": "Leasing",
+											  "Status": "Undefined"
                                             }
                                           ]
                                         }
@@ -157,12 +196,15 @@
                 },
                 {
                   "Name": "Cost Management",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Perform Cost Accounting and Control",
+					  "Status": "Undefined",
                       "Children": [
                         {
-                          "Name": "Perform Cost Management"
+                          "Name": "Perform Cost Management",
+						  "Status": "Undefined"
                         }
                       ]
                     }
@@ -170,28 +212,35 @@
                 },
                 {
                   "Name": "Process Accounts Payables",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
-
                       "Name": "Verify AP Pay File with PO vendor Master File",
+					  "Status": "Undefined",
                       "Children": [
                         {
                           "Name": "Create AP Transaction in AP System",
+						  "Status": "Undefined",
                           "Children": [
                             {
                               "Name": "Process Payments",
+							  "Status": "Medium Maturity",
                               "Children": [
                                 {
                                   "Name": "Process Financial Accruals and Reversals",
+								  "Status": "Medium Maturity",
                                   "Children": [
                                     {
                                       "Name": "Create/Adjust Accounting Records",
+									  "Status": "Medium Maturity",
                                       "Children": [
                                         {
                                           "Name": "Process 1099 Reporting",
+										  "Status": "Medium Maturity",
                                           "Children": [
                                             {
-                                              "Name": "Develop Tax Strategy and Plan"
+                                              "Name": "Develop Tax Strategy and Plan",
+											  "Status": "Out of Scope"
                                             }
                                           ]
                                         }
@@ -209,15 +258,19 @@
                 },
                 {
                   "Name": "Process Expense Reimbursements",
-                  "Cotent": [
+				  "Status": "L2 Business Process",
+                  "Children": [
                     {
                       "Name": "Export Expense Report",
+					  "Status": "Medium Maturity",
                       "Children": [
                         {
                           "Name": "Approvals",
+						  "Status": "Medium Maturity",
                           "Children": [
                             {
-                              "Name": "Audit Expense Reports"
+                              "Name": "Audit Expense Reports",
+							  "Status": "Medium Maturity"
                             }
                           ]
                         }
@@ -227,12 +280,15 @@
                 },
                 {
                   "Name": "Master Data",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Master Data (Vendors)",
+					  "Status": "Low Maturity",
                       "Children": [
                         {
-                          "Name": "Transactional Data (Open POs, Invoices)"
+                          "Name": "Transactional Data (Open POs, Invoices)",
+						  "Status": "Low Maturity"
                         }
                       ]
                     }
@@ -244,26 +300,33 @@
         },
         {
           "Name": "Finance",
+		  "Status": "Portfolio",
           "Children": [
             {
               "Name": "Record to Report",
+			  "Status": "L1 Business Process",
               "Children": [
                 {
                   "Name": "Perform Planning and Management Accounting",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Develop Budget Policies and Procedures",
+					  "Status": "Low Maturity",
                       "Children": [
                         {
 
                           "Name": "Prepare/Update Periodic Budgets and Plans",
+						  "Status": "Low Maturity",
                           "Children": [
                             {
 
                               "Name": "Prepare Periodic Financial Forecasts",
+							  "Status": "Low Maturity",
                               "Children": [
                                 {
-                                  "Name": "Perform Variance Analysis"
+                                  "Name": "Perform Variance Analysis",
+								  "Status": "Low Maturity"
                                 }
                               ]
                             }
@@ -275,27 +338,35 @@
                 },
                 {
                   "Name": "Perform General Accounting",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Chart of Accounts/Indirect Pools",
+					  "Status": "Low Maturity",
                       "Children": [
                         {
                           "Name": "Journal Entries",
+						  "Status": "Low Maturity",
                           "Children": [
                             {
                               "Name": "Close Process and Reconciliations",
+							  "Status": "Low Maturity",
                               "Children": [
                                 {
                                   "Name": "Consolidation and Inter-Company",
+								  "Status": "Low Maturity",
                                   "Children": [
                                     {
                                       "Name": "Payroll",
+									  "Status": "Undefined",
                                       "Children": [
                                         {
                                           "Name": "T&E",
+										  "Status": "Low Maturity",
                                           "Children": [
                                             {
-                                              "Name": "Time and Attendance"
+                                              "Name": "Time and Attendance",
+											  "Status": "Undefined"
                                             }
                                           ]
                                         }
@@ -313,12 +384,15 @@
                 },
                 {
                   "Name": "Perform Reporting",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Perform Internal Management Reporting",
+					  "Status": "Low Maturity",
                       "Children": [
                         {
-                          "Name": "Perform External financial Reporting"
+                          "Name": "Perform External financial Reporting",
+						  "Status": "Medium Maturity"
                         }
                       ]
                     }
@@ -326,18 +400,23 @@
                 },
                 {
                   "Name": "Manage Treasury Operations",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Manage Treasury Policies and Procedures",
+					  "Status": "High Maturity",
                       "Children": [
                         {
                           "Name": "Manage Cash",
+						  "Status": "High Maturity",
                           "Children": [
                             {
                               "Name": "Manage In-House Bank Accounts",
+							  "Status": "High Maturity",
                               "Children": [
                                 {
-                                  "Name": "Manage Debt and Investments"
+                                  "Name": "Manage Debt and Investments",
+								  "Status": "High Maturity"
                                 }
                               ]
                             }
@@ -349,12 +428,15 @@
                 },
                 {
                   "Name": "Corporate Tax",
+				  "Status": "L2 Business Process",
                   "Children": [
                     {
                       "Name": "Corporate Tax and Regulatory Compliance",
+					  "Status": "Medium Maturity",
                       "Children": [
                         {
-                          "Name": "State & Local Tax"
+                          "Name": "State & Local Tax",
+						  "Status": "Medium Maturity"
                         }
                       ]
                     }
