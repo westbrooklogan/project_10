@@ -1,17 +1,9 @@
 var fs = require('fs'),
     fabric = require('fabric').fabric,
-    out = fs.createWriteStream(__dirname + '/helloworld.png');
-
 var canvas = new fabric.StaticCanvas(null, {
   backgroundColor:'white', width: 550, height: 500 });
 
-var text = new fabric.Text('Hello world', {
-  left: 100,
-  top: 100,
-  fill: '#f55',
-  angle: 15,
-});
-
+// coordinates for the line
 var coords = [210, 90, 350, 90];
 
 var line = new fabric.Line(coords, {
@@ -19,13 +11,14 @@ var line = new fabric.Line(coords, {
     strokeWidth: 4
 });
 
+// rectangle
 var rect1 = new fabric.Rect({
     width: 160,
     height: 80,
     fill: '#ff0004',
-    stroke: 'black',
+    stroke: 'black', // border
     strokeWidth: 2,
-    originX: 'center',
+    originX: 'center', 
     originY: 'center'
 });
 
@@ -63,7 +56,6 @@ var group2 = new fabric.Group([rect2, text2], {
 
 canvas.add(line, group1, group2);
 canvas.renderAll();
-
 var stream = canvas.createPNGStream();
 stream.on('data', function(chunk) {
   out.write(chunk);
