@@ -1,62 +1,33 @@
-var fs = require('fs'),
-    fabric = require('fabric').fabric,
-var canvas = new fabric.StaticCanvas(null, {
-  backgroundColor:'white', width: 550, height: 500 });
+import { fabric } from "fabric";
+import { obj } from "./parser";
+import { ShapeMapper } from "./ShapeMapper";
+import { ShapeConnector } from "./ShapeConnector";
+import { Canvas } from "./Canvas";
+import { ImageMaker } from "./ImageMaker";
 
-// coordinates for the line
-var coords = [210, 90, 350, 90];
+function main() {
+  const shapeMapper = new ShapeMapper(obj);
 
-var line = new fabric.Line(coords, {
-    stroke: 'black',
-    strokeWidth: 4
-});
+  if(shapeMapper == undefined || shapeMapper == null) {
+    console.error("Make sure the shapeMapper is defined and not null");
+    return null;
+  }
 
-// rectangle
-var rect1 = new fabric.Rect({
-    width: 160,
-    height: 80,
-    fill: '#ff0004',
-    stroke: 'black', // border
-    strokeWidth: 2,
-    originX: 'center', 
-    originY: 'center'
-});
+  const shapeConnector = new ShapeConnector(shapeMapper.ShapeCollection);
 
-var rect2 = new fabric.Rect({
-    width: 160,
-    height: 80,
-    fill: '#ff0004',
-    stroke: 'black',
-    strokeWidth: 2,
-    originX: 'center',
-    originY: 'center'
-});
+  if(shapeConnector == undefined || shapeConnector == null) {
+    console.error("Make sure the shapeConnector is defined and not null");
+    return null;
+  }
 
-var text1 = new fabric.Text('sample text 1', {
-  fontSize: 24,
-  originX: 'center',
-  originY: 'center'
-});
+  const canvas = new Canvas(shapeConnector.Shapes);
 
-var text2 = new fabric.Text('sample text 2', {
-  fontSize: 24,
-  originX: 'center',
-  originY: 'center'
-});
+  if(canvas == undefined || shapeConnector == null) {
+    console.error("Make sure the canvas is defined and not null");
+    return null;
+  }
 
-var group1 = new fabric.Group([rect1, text1], {
-  left: 50,
-  top: 50
-});
+  const imageMaker = new ImageMaker(canvas.canvas);
+}
 
-var group2 = new fabric.Group([rect2, text2], {
-  left: line.get('x2'),
-  top: 50
-});
-
-canvas.add(line, group1, group2);
-canvas.renderAll();
-var stream = canvas.createPNGStream();
-stream.on('data', function(chunk) {
-  out.write(chunk);
-});
+main();
