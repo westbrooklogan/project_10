@@ -1,7 +1,7 @@
 import { fabric } from "fabric";
 import { obj } from "./Components/parser";
 import { ShapeMapper } from "./Components/ShapeMapper";
-import { ShapeConnector } from "./Components/DiagramMaker";
+import { DiagramMaker } from "./Components/DiagramMaker";
 import { Canvas } from "./Components/Canvas";
 import { ImageMaker } from "./Components/ImageMaker";
 
@@ -13,16 +13,16 @@ function main() {
     return null;
   }
 
-  const shapeConnector = new ShapeConnector(shapeMapper.ShapeCollection);
+  const diagramMaker = new DiagramMaker(shapeMapper.ShapeCollection);
 
-  if(shapeConnector == undefined || shapeConnector == null) {
+  if(diagramMaker == undefined || diagramMaker == null) {
     console.error("Make sure the shapeConnector is defined and not null");
     return null;
   }
 
-  const canvas = new Canvas(shapeConnector.Shapes);
+  const canvas = new Canvas(diagramMaker.Shapes);
 
-  if(canvas == undefined || shapeConnector == null) {
+  if(canvas == undefined || diagramMaker == null) {
     console.error("Make sure the canvas is defined and not null");
     return null;
   }

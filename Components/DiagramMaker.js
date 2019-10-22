@@ -43,15 +43,12 @@ export class DiagramMaker {
             flow.shapes.forEach((shapeCollection, index) => {
                 shapeCollection.forEach(shape => {
                    
-                   // console.log(shape.width);
+
                    (index == 0) ? currentX += flow.level.width :
                     currentX += shape.width;
-                   // console.log("currentX: " + currentX);
                     shape.set({top: currentY, left: currentX});
                 })
             });
-
-          //console.log("flow.level:  ", flow.level);
         });
 
         currentX = this._offsetX;
