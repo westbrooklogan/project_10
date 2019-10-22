@@ -1,16 +1,26 @@
-import { fabric } from "fabric";
-
-export class ShapeConnector {
+// creates the layout of the diagram
+// takes each shape (workflow level element) and 
+// gives it a relative location based on other elements
+export class DiagramMaker {
+    // constructor
+    // creates the offsets used from the top
+    // and left of the page
     constructor(shapes) {
         this._offsetX = 20;
         this._offsetY = 20;
+        // put shapes in relative positions
+        // or connect shapes to each other
         this.Shapes = this.connect_Shape(shapes);
     }
     
+    // getter and setter of the shapes attribute of this class
     get Shapes() { return this._shapes; }
     set Shapes(shapes) { this._shapes = shapes; }
 
+     // put shapes in relative positions
+    // or connect shapes to each other
     connect_Shape = shapes => {
+        // workflow elements to l2
         const workFlow = [
             shapes.workStreamShapes,
             shapes.portfolioShapes,
@@ -18,6 +28,8 @@ export class ShapeConnector {
             shapes.l2Shapes
         ];
         
+        // get the l3 shapes, maxHeight and 
+        // set start locations to offsets
         const l3Shape = shapes.l3Shapes;
         const maxHeight = shapes.maxHeight
         let currentY = this._offsetY;
@@ -26,7 +38,6 @@ export class ShapeConnector {
         workFlow.forEach((flow, index) => {
             currentX = this._offsetX;
             currentY = maxHeight * index + this._offsetY;
-            console.log(currentY)
             flow.level.set({top: currentY, left: currentX});
 
             flow.shapes.forEach((shapeCollection, index) => {

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<PageContents xmlns="http://schemas.microsoft.com/office/visio/2011/1/core" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xml:space="preserve">
-  <Shapes>
-    <Shape ID="1" Type="Shape" Master="2">
-      <Cell N="PinX" V="4" />
-      <Cell N="PinY" V="5.5" />
-    </Shape>
-  </Shapes>
-</PageContents>

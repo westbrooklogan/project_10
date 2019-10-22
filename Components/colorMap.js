@@ -1,3 +1,4 @@
+// colors used based on the status of each workflow element
 export var colorMap = {
     "Undefined" : "#B60000",
     "Low Maturity" : "#FF81A3",

@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Target="windows.xml" Type="http://schemas.microsoft.com/visio/2010/relationships/windows" Id="rId3" />
-  <Relationship Target="pages/pages.xml" Type="http://schemas.microsoft.com/visio/2010/relationships/pages" Id="rId2" />
-  <Relationship Target="masters/masters.xml" Type="http://schemas.microsoft.com/visio/2010/relationships/masters" Id="rId1" />
-</Relationships>

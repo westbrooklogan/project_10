@@ -1,9 +1,9 @@
 import { fabric } from "fabric";
-import { obj } from "./parser";
-import { ShapeMapper } from "./ShapeMapper";
-import { ShapeConnector } from "./ShapeConnector";
-import { Canvas } from "./Canvas";
-import { ImageMaker } from "./ImageMaker";
+import { obj } from "./Components/parser";
+import { ShapeMapper } from "./Components/ShapeMapper";
+import { ShapeConnector } from "./Components/DiagramMaker";
+import { Canvas } from "./Components/Canvas";
+import { ImageMaker } from "./Components/ImageMaker";
 
 function main() {
   const shapeMapper = new ShapeMapper(obj);
