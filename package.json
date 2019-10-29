@@ -10,9 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "fabric": "^3.4.0",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
+    "canvas": "^2.6.0",
     "esm": "^3.2.25"
   }
 }
