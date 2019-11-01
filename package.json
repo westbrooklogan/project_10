@@ -4,15 +4,17 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "nodemon -r esm main.js"
+    "test": "nodemon -r esm main.js",
+    "start": "node -r esm main.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "fabric": "^3.4.0",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "node": "^12.12.0"
   }
 }
