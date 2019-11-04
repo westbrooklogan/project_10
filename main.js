@@ -5,9 +5,11 @@ import { Canvas } from "./Components/Canvas";
 import { ImageMaker } from "./Components/ImageMaker";
 import { ShapeMapper2 } from "./Components/ShapeMapper2";
 import { DiagramMaker2 } from "./Components/DiagramMaker2";
+import { colorMap } from "./Components/colorMap";
+import {ColorMapper} from "./Components/ColorMapper"
 
 function main() {
-  const shapeMapper = new ShapeMapper2(obj2);
+  const shapeMapper = new ShapeMapper2(obj2, new ColorMapper());
   const collection = shapeMapper.ShapeCollection;
   
   const diagramMaker = new DiagramMaker2(collection);

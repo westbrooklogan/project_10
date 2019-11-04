@@ -1,6 +1,7 @@
 import { Shape } from "./Shape";
 import { NoDataError } from "../Errors/DataErrors";
 import { colorMap } from "./colorMap";
+import { ColorMapper } from "./ColorMapper";
 
 // maps work flow data into shapes
 export class ShapeMapper2 {
@@ -12,13 +13,12 @@ export class ShapeMapper2 {
     set ColorMap(colorMap) { this._colorMap = colorMap; }
 
     // constructor that maps Data
-    constructor(dataToMap) {    
+    constructor(dataToMap, colormapper) {    
         if(dataToMap == undefined || dataToMap == null)
             throw NoDataError;
-
+        this.mappedcolors = colormapper;
             //this._shapeCollection = map_Data_To_Group(workFlowData);
             this.ShapeCollection = this.map_Data_To_Group(dataToMap);
-        
     }
 
     // make a new object with the given features
@@ -28,11 +28,13 @@ export class ShapeMapper2 {
         shape.Width = (width == undefined || width == null) ? 160 : width;
         // give it text or an empty string
         shape.Text = name;
+        
         // give it a status
-        if(!(status in colorMap))
-            shape.Status = this._generate_Status(status);
+        if(status in colorMap)
+            this.mappedcolors._addNewstatus(status, colorMap[status]);
+         else
+            this.mappedcolors._generate_Status(status);
         shape.Status = status;
-
 
         var shapeChildren = [];
 
@@ -182,31 +184,4 @@ export class ShapeMapper2 {
 
         return collection;
     }
-
-    _generate_Status = (status) => {
-        var newColor;
-        do{
-            newColor = '#'+Math.floor(Math.random()*16777215).toString(16);
-            if(newColor.length < 7) { newColor += "0" }       
-            var birghtness = this._brightness_Calc(newColor);
-        }while(birghtness < 15 || birghtness > 85);
-    
-        colorMap[status] = newColor;
-    
-        //return colorMap[status];
-    }
-    
-    _brightness_Calc = (newColor) => {
-        var c = newColor.substring(1);
-        var rgb = parseInt(c, 16);
-        var r = (rgb >> 16) & 0xff;
-        var g = (rgb >>  8) & 0xff;
-        var b = (rgb >>  0) & 0xff;
-    
-        var lumi = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    
-        return lumi;
-    }
-
 }
-
