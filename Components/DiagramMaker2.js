@@ -30,6 +30,8 @@ export class DiagramMaker2 {
         this._totalX = 0;
         this._totalY = 0;
         this.Shapes = this.connect_Shapes(shapes);
+
+        //Ricardo start here
     }
 
     connect_Shapes = shapeCollection => {

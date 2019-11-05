@@ -34,6 +34,7 @@ export class ShapeMapper2 {
             this.mappedcolors._addNewstatus(status, colorMap[status]);
          else
             this.mappedcolors._generate_Status(status);
+            
         shape.Status = status;
 
         var shapeChildren = [];
