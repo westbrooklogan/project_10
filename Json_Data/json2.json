@@ -138,7 +138,7 @@
                         {
                             "Name": "Invoice & Billing",
                             "Status": "Low Maturity",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Debt Collection",
                                     "Status": "Medium Maturity"
@@ -162,7 +162,7 @@
                         {
                             "Name": "Revenue Recognition",
                             "Status": "Undefined",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Deferred Revenue",
                                     "Status": "Low Maturity"
@@ -196,7 +196,7 @@
                         {
                             "Name": "Develop Sourcing Strategy",
                             "Status": "Low Maturity",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Select Suppliers",
                                     "Status": "Low Maturity"
@@ -228,7 +228,7 @@
                         {
                             "Name": "Perform Cost Accounting and Control",
                             "Status": "Undefined",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Perform Cost Management",
                                     "Status": "Undefined"
@@ -534,7 +534,7 @@
                         {
                             "Name": "Invoice & Billing",
                             "Status": "Low Maturity",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Debt Collection",
                                     "Status": "Medium Maturity"
@@ -558,7 +558,7 @@
                         {
                             "Name": "Revenue Recognition",
                             "Status": "Undefined",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Deferred Revenue",
                                     "Status": "Low Maturity"
@@ -592,7 +592,7 @@
                         {
                             "Name": "Develop Sourcing Strategy",
                             "Status": "Low Maturity",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Select Suppliers",
                                     "Status": "Low Maturity"
@@ -624,7 +624,7 @@
                         {
                             "Name": "Perform Cost Accounting and Control",
                             "Status": "Undefined",
-                            "Chidren": [
+                            "Children": [
                                 {
                                     "Name": "Perform Cost Management",
                                     "Status": "Undefined"
