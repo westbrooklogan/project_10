@@ -16,7 +16,7 @@ export class ImageMaker {
         const out = fs.createWriteStream(__dirname + "/helloworld2.png");
         
         // when there is data write to stream
-        this.Stream.on('data', function(chunk) {
+        this.Stream.on('data', chunk => {
             out.write(chunk);
         });
     }

@@ -1,0 +1,797 @@
+{
+    "Content": [
+        [
+            {
+                "Level": "WorkStream",
+                "Content": [
+                    [
+                        {
+                            "Name": "Finance, SC&P"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "Portfolio",
+                "Content": [
+                    [
+                        {
+                            "Name": "Finance"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Supply Chain and Purchasing (SC&P)"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Finance"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "L1 Business Process",
+                "Content": [
+                    [
+                        {
+                            "Name": "Order To Cash"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Procure to Pay"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Record to Report"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "L2 Business Process",
+                "Content": [
+                    [
+                        {
+                            "Name": "Order Management"
+                        },
+                        {
+                            "Name": "Customer Billing & Collection"
+                        },
+                        {
+                            "Name": "Revenue Recognition"
+                        },
+                        {
+                            "Name": "Master Data"
+                        },
+                        {
+                            "Name": "Reporting"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Procure Material & Services"
+                        },
+                        {
+                            "Name": "Cost Management"
+                        },
+                        {
+                            "Name": "Process Accounts Payables"
+                        },
+                        {
+                            "Name": "Master Process Expense Reimbursements"
+                        },
+                        {
+                            "Name": "Master Data"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Perform Planning and Management Accounting"
+                        },
+                        {
+                            "Name": "Perform General Accounting"
+                        },
+                        {
+                            "Name": "Perform Reporting"
+                        },
+                        {
+                            "Name": "Manage Treasury Operations"
+                        },
+                        {
+                            "Name": "Corporate Tax"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "L3 Business Process",
+                "Content": [
+                    [
+                        {
+                            "Name": "Contract Management",
+                            "Status": "Medium Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Recieve Orders",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Pricing Management",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Project Accounting and Control",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Project Setup",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Invoice & Billing",
+                            "Status": "Low Maturity",
+                            "Chidren": [
+                                {
+                                    "Name": "Debt Collection",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Apply Cash",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "AR Management",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Tax Calculations for Invoicing and Billing",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Revenue Recognition",
+                            "Status": "Undefined",
+                            "Chidren": [
+                                {
+                                    "Name": "Deferred Revenue",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Unbilled Revenue Analysis",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Master Data (Sales, Orders, Customers)",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Transactional Data (Open AR, Billing)",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Analytics",
+                            "Status": "Out of Scope"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Develop Sourcing Strategy",
+                            "Status": "Low Maturity",
+                            "Chidren": [
+                                {
+                                    "Name": "Select Suppliers",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Order Material and Services",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Manage Suppliers",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Recieve Goods",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Asset Management",
+                                    "Status": "Undefined"
+                                },
+                                {
+                                    "Name": "Leasing",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Perform Cost Accounting and Control",
+                            "Status": "Undefined",
+                            "Chidren": [
+                                {
+                                    "Name": "Perform Cost Management",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Verify AP Pay File With PO Vender Master File",
+                            "Status": "Undefined",
+                            "Children": [
+                                {
+                                    "Name": "Create AP Transaction in AP System",
+                                    "Status": "Undefined"
+                                },
+                                {
+                                    "Name": "Process Payments",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Process Financial Accruals and Reversals",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Create/Adjust Accounting Records",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Process 1099 Reporting",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Develop Tax Strategy and Plan",
+                                    "Status": "Out of Scope"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Export Expense Report",
+                            "Status": "Medium Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Approvals",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Audit Expense Reports",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Master Data (Vendors)",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Transactional Data (Open POs Invoices)",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }  
+                    ],
+                    [
+                        {
+                            "Name": "Develop Budget Policies and Procedures",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Prepare/Update Periodic Budgets and Plans",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Prepare Periodic Financial Forecasts",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Perform Variance Analysis",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }
+                        
+                    ],
+                    [
+                        {
+                            "Name": "Chart of Accounts/Indirect Pools",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Journal Entries",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Close Process and Reconciliations",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Consolidation and Inter-Company",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Payroll",
+                                    "Status": "Undefined"
+                                },
+                                {
+                                    "Name": "T & E",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Time and Attendance",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Perform Internal Management Reporting",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Perform External Financial Reporting",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Manage Treasury Policies and Procedures",
+                            "Status": "High Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Manange Cash",
+                                    "Status": "High Maturity"
+                                },
+                                {
+                                    "Name": "Manage In-House Bank Accounts",
+                                    "Status": "High Maturity"
+                                },
+                                {
+                                    "Name": "Manage Debt and Investments",
+                                    "Status": "High Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Corporate Tax and Regulatory Compliances",
+                            "Status": "Medium Maturity",
+                            "Children": [
+                                {
+                                    "Name": "State & Local Tax",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ]
+                ]
+            }
+        ],
+        [
+            {
+                "Level": "WorkStream",
+                "Content": [
+                    [
+                        {
+                            "Name": "Finance, SC&P"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "Portfolio",
+                "Content": [
+                    [
+                        {
+                            "Name": "Finance"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Supply Chain and Purchasing (SC&P)"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Finance"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "L1 Business Process",
+                "Content": [
+                    [
+                        {
+                            "Name": "Order To Cash"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Procure to Pay"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Record to Report"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "L2 Business Process",
+                "Content": [
+                    [
+                        {
+                            "Name": "Order Management"
+                        },
+                        {
+                            "Name": "Customer Billing & Collection"
+                        },
+                        {
+                            "Name": "Revenue Recognition"
+                        },
+                        {
+                            "Name": "Master Data"
+                        },
+                        {
+                            "Name": "Reporting"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Procure Material & Services"
+                        },
+                        {
+                            "Name": "Cost Management"
+                        },
+                        {
+                            "Name": "Process Accounts Payables"
+                        },
+                        {
+                            "Name": "Master Process Expense Reimbursements"
+                        },
+                        {
+                            "Name": "Master Data"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Perform Planning and Management Accounting"
+                        },
+                        {
+                            "Name": "Perform General Accounting"
+                        },
+                        {
+                            "Name": "Perform Reporting"
+                        },
+                        {
+                            "Name": "Manage Treasury Operations"
+                        },
+                        {
+                            "Name": "Corporate Tax"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Level": "L3 Business Process",
+                "Content": [
+                    [
+                        {
+                            "Name": "Contract Management",
+                            "Status": "Medium Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Recieve Orders",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Pricing Management",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Project Accounting and Control",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Project Setup",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Invoice & Billing",
+                            "Status": "Low Maturity",
+                            "Chidren": [
+                                {
+                                    "Name": "Debt Collection",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Apply Cash",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "AR Management",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Tax Calculations for Invoicing and Billing",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Revenue Recognition",
+                            "Status": "Undefined",
+                            "Chidren": [
+                                {
+                                    "Name": "Deferred Revenue",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Unbilled Revenue Analysis",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Master Data (Sales, Orders, Customers)",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Transactional Data (Open AR, Billing)",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Analytics",
+                            "Status": "Out of Scope"
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Develop Sourcing Strategy",
+                            "Status": "Low Maturity",
+                            "Chidren": [
+                                {
+                                    "Name": "Select Suppliers",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Order Material and Services",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Manage Suppliers",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Recieve Goods",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Asset Management",
+                                    "Status": "Undefined"
+                                },
+                                {
+                                    "Name": "Leasing",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Perform Cost Accounting and Control",
+                            "Status": "Undefined",
+                            "Chidren": [
+                                {
+                                    "Name": "Perform Cost Management",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Verify AP Pay File With PO Vender Master File",
+                            "Status": "Undefined",
+                            "Children": [
+                                {
+                                    "Name": "Create AP Transaction in AP System",
+                                    "Status": "Undefined"
+                                },
+                                {
+                                    "Name": "Process Payments",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Process Financial Accruals and Reversals",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Create/Adjust Accounting Records",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Process 1099 Reporting",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Develop Tax Strategy and Plan",
+                                    "Status": "Out of Scope"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Export Expense Report",
+                            "Status": "Medium Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Approvals",
+                                    "Status": "Medium Maturity"
+                                },
+                                {
+                                    "Name": "Audit Expense Reports",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Master Data (Vendors)",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Transactional Data (Open POs Invoices)",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }  
+                    ],
+                    [
+                        {
+                            "Name": "Develop Budget Policies and Procedures",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Prepare/Update Periodic Budgets and Plans",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Prepare Periodic Financial Forecasts",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Perform Variance Analysis",
+                                    "Status": "Low Maturity"
+                                }
+                            ]
+                        }
+                        
+                    ],
+                    [
+                        {
+                            "Name": "Chart of Accounts/Indirect Pools",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Journal Entries",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Close Process and Reconciliations",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Consolidation and Inter-Company",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Payroll",
+                                    "Status": "Undefined"
+                                },
+                                {
+                                    "Name": "T & E",
+                                    "Status": "Low Maturity"
+                                },
+                                {
+                                    "Name": "Time and Attendance",
+                                    "Status": "Undefined"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Perform Internal Management Reporting",
+                            "Status": "Low Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Perform External Financial Reporting",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Manage Treasury Policies and Procedures",
+                            "Status": "High Maturity",
+                            "Children": [
+                                {
+                                    "Name": "Manange Cash",
+                                    "Status": "High Maturity"
+                                },
+                                {
+                                    "Name": "Manage In-House Bank Accounts",
+                                    "Status": "High Maturity"
+                                },
+                                {
+                                    "Name": "Manage Debt and Investments",
+                                    "Status": "High Maturity"
+                                }
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "Name": "Corporate Tax and Regulatory Compliances",
+                            "Status": "Medium Maturity",
+                            "Children": [
+                                {
+                                    "Name": "State & Local Tax",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
+                        }
+                    ]
+                ]
+            }
+        ]
+    ]
+}
+           

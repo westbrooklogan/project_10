@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "nodemon -r esm main.js"
+    "test": "nodemon -r esm main.js",
+    "start": "node -r esm main.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +14,12 @@
     "nodemon": "^1.19.4"
   },
   "dependencies": {
+<<<<<<< HEAD
     "canvas": "^2.6.0",
     "esm": "^3.2.25"
+=======
+    "esm": "^3.2.25",
+    "node": "^12.12.0"
+>>>>>>> ebba584e354927ed0e707b564e504045c7ff8ba8
   }
 }
