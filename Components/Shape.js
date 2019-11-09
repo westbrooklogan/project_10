@@ -5,11 +5,11 @@ import { colorMap } from "../Components/colorMap";
 // shape class that stores information about the shapes
 export class Shape {
     constructor() {
-        this._width = 160;
+        this._width = 240;
         this._status = null;
         this._text = "";
         this._shapeReady = false;
-        this._height = 80;
+        this._height = 120;
         this._textColor = "#000000";
     }
 
@@ -43,7 +43,7 @@ export class Shape {
 
     set Width(width) { 
         if(width <= 0)
-            width = 160;
+            width = 240;
         
         this._width = width;
 
@@ -77,7 +77,7 @@ export class Shape {
             this.Shape = this._map_To_Group();
     }
 
-    // getter and setter for textbox
+    // getter and setter for text
     get Text() { return this._text; }
 
     set Text(text) { 
@@ -86,37 +86,45 @@ export class Shape {
         this._makeTextBox(text);
     }
     
+    // getter and setter for the textbox
     get TextBox() { return this._textBox; }
 
     set TextBox(textBox) { 
+        // bad argument
         if(textBox == null || textBox == undefined ||
             textBox.height <= 0 || textBox.width <= 0)
                 throw BadTextBoxError;
         
         this._textBox = textBox;
-
+        
+        // if the shape is ready to map to a group then map it 
         if(this.ShapeReady)
             this.Shape = this._map_To_Group();
     }
 
+    // getter and setter rectangle
     get Rectangle() { return this._rectangle; }
 
     set Rectangle(rectangle) {
+        // bad argument
         if(rectangle == null || rectangle == undefined ||
             rectangle.height <= 0 || rectangle.width <= 0) 
                 throw BadRectangleError;
 
         this._rectangle = rectangle;
-
+        
+        // if shape is ready then map to group with the textbox
         if(this.ShapeReady)
             this.Shape = this._map_To_Group();
-     }
-
+    }
+    
+    // getter and setter for the status
     get Status() { return this._status; }
 
     set Status(status) { 
         this._status = status;
 
+        // if shape is ready make a rectangle that determines the color
         if(this.ShapeReady)
             this.Rectangle = this.rectangle(status);
     }
@@ -126,45 +134,59 @@ export class Shape {
             this.TextColor = "#ffffff";
     }
 
-    // make the shape
+    // make the shape with a given text, status, and width
     makeShape = (text, status, width) => {
         this.Width = width;
 
-        this._textBox = this.makeTextBox(text);
+        this._textBox = this.makeTextBox(text); // make a text box with the given text
         
+        // set the height of the textbox to either the 
+        //set height, or a default if the text box doesn't have a height
         this.TextBox.height == 0 ? this._height = this._width / 2 : this._height = this.TextBox.height;
     
         this.rectangle = _rectangle(status);
         
+        // the shape is ready so if any changes to 
+        // a shape object, then the shape needs to be changed
         this.ShapeReady = true;
-        this.Shape = this._map_To_Group();
+        this.Shape = this._map_To_Group(); // combine textbox and rectangle
     }
 
+    // make the shape with a given text, and status
     makeShape = (text, status) => {
+        // get a default height
         if(this.Width == undefined || this.Width == null || this.Width <= 0)
-            this._width = 160;
+            this._width = 240;
         
-        this._textBox = this.makeTextBox(text);
-    
+        this._textBox = this.makeTextBox(text); // make textbox with given text
+        
+         // set the height of the textbox to either the 
+        //set height, or a default if the text box doesn't have a height
         this.TextBox.height == 0 ? this._height = this._width / 2 : this._height = this.TextBox.height;
     
         this._rectangle = this._rectangle(status);
         
+         // the shape is ready so if any changes to 
+        // a shape object, then the shape needs to be changed
         this.ShapeReady = true;
-        this.Shape = this._map_To_Group();
+        this.Shape = this._map_To_Group(); // combine textbox and rectangle
     }
 
+    // make the shape
     makeShape = () => {
+        // can't make a shape without status or width
         if(this.Status == undefined || this.Status == null)
             throw NoStatusError;
 
         if(this.Width == undefined || this.Width == null || this.Width <= 0)
-            this._width = 160;
+            this._width = 240;
         
         this._rectangle = this._rectangle(this.Status);
-    
+        
+        // the shape is ready so if any changes to 
+        // a shape object, then the shape needs to be changed
         this.ShapeReady = true;
-        this.Shape = this._map_To_Group();
+        this.Shape = this._map_To_Group(); // combine textbox and rectangle
     }
 
     _makeTextBox = text => {
@@ -206,6 +228,7 @@ export class Shape {
         });
     }
 
+    // map a rectangle and textbox to a group
     _map_To_Group = () => 
         new fabric.Group([this.Rectangle, this.TextBox], {
             width: this.Width,
@@ -226,7 +249,9 @@ export class Shape {
             originY: 'center' // vertical orientation to origin
         });
     }
-        
+    
+
+    // determine the color of a rectangle
     _determineColor = status => {
         if(status == null || status == undefined)
             throw NoStatusError;
