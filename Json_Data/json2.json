@@ -96,7 +96,7 @@
                             "Name": "Perform General Accounting"
                         },
                         {
-                            "Name": "Perform Reporting"
+                            "Name": "Perform Reporting" 
                         },
                         {
                             "Name": "Manage Treasury Operations"
@@ -263,7 +263,7 @@
                                 },
                                 {
                                     "Name": "Develop Tax Strategy and Plan",
-                                    "Status": "Out of Scope"
+                                    "Status": "New Status"
                                 }
                             ]
                         }
