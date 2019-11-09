@@ -1,13 +1,17 @@
 import { colorMap } from "./colorMap";
 
 export class ColorMapper{
+
     constructor(){
         this._statuses = {};
+        this._brightness = {};
     }
 
-    _addNewstatus(status, color){
-        if(!(status in this._statuses))
-            this._statuses[status] = color
+    _addNewstatus(status, color, brightness){
+        if(!(status in this._statuses)) {
+            this._statuses[status] = color;
+            this._brightness[status] = brightness;
+        }
     }
 
     _getdata(){
@@ -16,14 +20,17 @@ export class ColorMapper{
 
     _generate_Status = (status) => {
         var newColor;
+        var brightness;
         do{
             newColor = '#'+Math.floor(Math.random()*16777215).toString(16);
             if(newColor.length < 7) { newColor += "0" }       
-            var birghtness = this._brightness_Calc(newColor);
-        }while(birghtness < 20 || birghtness > 85);
-    
+                brightness = this._brightness_Calc(newColor);
+        }while(brightness < 20 || brightness > 85);
+        
+        
+        //Brightness = brightness;
         colorMap[status] = newColor;
-        this._addNewstatus(status, newColor);
+        this._addNewstatus(status, newColor, brightness);
     }
     
     _brightness_Calc = (newColor) => {

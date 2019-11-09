@@ -10,6 +10,7 @@ export class Shape {
         this._text = "";
         this._shapeReady = false;
         this._height = 80;
+        this._textColor = "#000000";
     }
 
     // indicates if the shapes are ready to be generated
@@ -48,6 +49,17 @@ export class Shape {
 
         if(this._text != undefined && this._text != null)
             this.TextBox = this._makeTextBox(this.Text); 
+     }
+    
+    // getter and setter of text color
+    get TextColor() { return this._textColor; }
+    set TextColor(textColor) { 
+        this._textColor = textColor;
+
+        if(this._textBox != undefined && this._textBox != null)
+            this._textBox.set({
+                fill: textColor
+            });
      }
 
     // getter and setter for color
@@ -108,6 +120,11 @@ export class Shape {
         if(this.ShapeReady)
             this.Rectangle = this.rectangle(status);
     }
+    
+    adjustTextColor = brightness => {
+        if(brightness <= 60)
+            this.TextColor = "#ffffff";
+    }
 
     // make the shape
     makeShape = (text, status, width) => {
@@ -163,7 +180,8 @@ export class Shape {
             originY: 'center', // vertical orientation to origin
             fixedWidth: this.Width,
             width: this.Width,
-            textAlign: 'center'
+            textAlign: 'center',
+            fill: this._textColor
         });
     }
 
@@ -177,13 +195,14 @@ export class Shape {
         // fabricjs text object
         // the text argument is a string
         return new fabric.Textbox(this._text, {
-            fontSize: 16, // size of text
+            fontSize: 18, // size of text
             originX: 'center', // horizontal orientation to origin
             originY: 'center', // vertical orientation to origin
             fixedWidth: this.Width,
             width: this.Width,
             textAlign: 'center',
-            height: this._height
+            height: this._height,
+            fill: this._textColor
         });
     }
 

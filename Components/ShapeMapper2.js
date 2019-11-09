@@ -30,12 +30,18 @@ export class ShapeMapper2 {
         shape.Text = name;
         
         // give it a status
-        if(status in colorMap)
-            this.mappedcolors._addNewstatus(status, colorMap[status]);
+        if(status in colorMap) {
+            var color = colorMap[status];
+            var brightness = this.mappedcolors._brightness_Calc(color);
+            this.mappedcolors._addNewstatus(status, color, brightness);
+        }
          else
             this.mappedcolors._generate_Status(status);
+    
             
         shape.Status = status;
+        console.log(name, ":  ", this.mappedcolors._brightness[status]);
+        shape.adjustTextColor(this.mappedcolors._brightness[status]);
 
         var shapeChildren = [];
 
@@ -44,7 +50,7 @@ export class ShapeMapper2 {
                 var childStatus = (child.Status == undefined || child.Status == null) ?
                     status : child.Status;
 
-                shapeChildren.push(this._makeShape(child.Name, childStatus, child.Children));
+                shapeChildren.push(this._makeShape(child.Name, childStatus, child.Children, width));
             });
         
         return {
