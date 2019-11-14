@@ -16,11 +16,15 @@ function main() {
   const diagramMaker = new DiagramMaker2(collection);
   
   const totalX = diagramMaker.TotalX,
-        totalY = diagramMaker.TotalY,
         offsetX = diagramMaker.OffsetX,
         offsetY = diagramMaker.OffsetY;
+  
+  var totalY = diagramMaker.TotalY;
+
 
   const legends = new Legend(totalY, offsetX, shapeMapper.mappedcolors);
+
+        totalY = legends.TotalY;
 
   const canvas = new Canvas(diagramMaker.Shapes,  totalX + offsetX, totalY + offsetY, legends);
   

@@ -87,7 +87,7 @@ export class DiagramMaker2 {
                 left: localX,
                 top:  localY
             });
-            //console.log(level.Shape.Shape);
+            // console.log(level.Shape.Shape);
             // content should start where level stops
             localX += level.Shape.Width;
 

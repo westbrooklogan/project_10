@@ -4,12 +4,12 @@ import { Shape } from "./Shape";
 
 export class Label extends Shape {
 
-    constructor(status, statusColor){
+    constructor(status, statusColor, labelHeight){
         super();
-        this._width = 240;
+        this.width = 240;
         this._status = null;
         this._text = "";
-        this._height = 120;
+        this._height = labelHeight;
         this._textColor = "#000000";
         this.label = this.makeShape(status, statusColor)
     }
@@ -17,20 +17,30 @@ export class Label extends Shape {
     makeShape = (status, statusColor) => {
         // get a default height
         if(this.Width == undefined || this.Width == null || this.Width <= 0)
-            this._width = 240;
+            this.width = 240;
         
         this._textBox = this.makeTextBox(status); // make textbox with given text
         
-         // set the height of the textbox to either the 
-        //set height, or a default if the text box doesn't have a height
-        this.TextBox.height == 0 ? this._height = this._width / 2 : this._height = this.TextBox.height;
+        // Make text bold
+        this._textBox.set({
+            fontWeight: "bold"
+        });
     
         this._rectangle = this._rectangle(statusColor);
         
          // the shape is ready so if any changes to 
         // a shape object, then the shape needs to be changed
-        return this._map_To_Group(); // combine textbox and rectangle
+        
+        this.Group = this._map_To_Group(); // combine textbox and rectangle
+
+        // Move textbox to the left
+        this.Group.item(1).set({
+            left: this.Group.item(1).left + this.Width
+        });
+
+        return this.Group
     }
+
 
     _rectangle = color => {
         if(color == null)

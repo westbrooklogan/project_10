@@ -13,10 +13,7 @@ export class Canvas {
             backgroundColor:'white', width: width, height: height});
         
         // add all the items in the diagram to the canvas
-        //console.log(diagram[0][0]["Level"].Shape.Shape)
         this.paint_Canvas(diagram, legends);
-        //console.log("#####################")
-        //console.log(legends.legend)
     }
 
     // add all items in the diagram to the canvas
@@ -42,7 +39,12 @@ export class Canvas {
             })
         });
 
-        this._canvas.add(legends.legend);
+        legends.legend.forEach(labelItem => {
+            //console.log(labelItem.label);
+            this._canvas.add(labelItem.label);
+        })
+
+        //this._canvas.add(legends.legend);
 
         // render everything in the canvas
         this._canvas.renderAll();

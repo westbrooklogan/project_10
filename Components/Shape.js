@@ -12,7 +12,7 @@ export class Shape {
         this._height = 120;
         this._textColor = "#000000";
     }
-
+    
     // indicates if the shapes are ready to be generated
     get () { return this._shapeReady; }
 
