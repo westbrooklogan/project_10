@@ -6,18 +6,21 @@ import { fabric } from "fabric";
 export class Canvas {
    
     // constructor that takes a diagram built in the Diagram Maker
-    constructor(diagram, width, height) {
+    constructor(diagram, width, height, legends) {
         // create a new static canvas that the diagram will be 
         // drawn onto
         this.canvas = new fabric.StaticCanvas(null, {
             backgroundColor:'white', width: width, height: height});
         
         // add all the items in the diagram to the canvas
-        this.paint_Canvas(diagram);
+        //console.log(diagram[0][0]["Level"].Shape.Shape)
+        this.paint_Canvas(diagram, legends);
+        //console.log("#####################")
+        //console.log(legends.legend)
     }
 
     // add all items in the diagram to the canvas
-    paint_Canvas(diagram) {
+    paint_Canvas(diagram, legends) {
         // grab each component of diagram to add to canvas
         diagram.forEach(diagramCollection => {
             diagramCollection.forEach(diagramLevel => {
@@ -38,6 +41,8 @@ export class Canvas {
                 )
             })
         });
+
+        this._canvas.add(legends.legend);
 
         // render everything in the canvas
         this._canvas.renderAll();

@@ -14,7 +14,7 @@ export class Shape {
     }
 
     // indicates if the shapes are ready to be generated
-    get ShapeReady() { return this._shapeReady; }
+    get () { return this._shapeReady; }
 
     set ShapeReady(shapeReady) { this._shapeReady = shapeReady; }
 
@@ -48,7 +48,7 @@ export class Shape {
         this._width = width;
 
         if(this._text != undefined && this._text != null)
-            this.TextBox = this._makeTextBox(this.Text); 
+            this.TextBox = this.makeTextBox(this.Text); 
      }
     
     // getter and setter of text color
@@ -83,7 +83,7 @@ export class Shape {
     set Text(text) { 
         this._text = text;
 
-        this._makeTextBox(text);
+        this.makeTextBox(text);
     }
     
     // getter and setter for the textbox
@@ -189,7 +189,7 @@ export class Shape {
         this.Shape = this._map_To_Group(); // combine textbox and rectangle
     }
 
-    _makeTextBox = text => {
+    makeTextBox = text => {
         if(text == undefined || text == null)
             throw NoTextError;
         

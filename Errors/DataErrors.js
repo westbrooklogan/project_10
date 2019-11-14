@@ -18,3 +18,5 @@ export var BadTextBoxError = new Error("The text box provided is either null or 
 export var ShapeCollectionError = new Error("The shaped data given was null, undefined, or not the\n \
     the correct format. Please make sure the shape data is valid.\n");
 
+export var NoColorError = new Error("Color is not defined.\n \
+    Please enter valid color to map to a diagram.");

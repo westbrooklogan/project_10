@@ -1,5 +1,6 @@
 import { ShapeCollectionError } from "../Errors/DataErrors";
 
+
 export class DiagramMaker2 {
     // getter and setter for the shapes
     get Shapes() { return this._shapes; }
@@ -86,7 +87,7 @@ export class DiagramMaker2 {
                 left: localX,
                 top:  localY
             });
-            
+            //console.log(level.Shape.Shape);
             // content should start where level stops
             localX += level.Shape.Width;
 

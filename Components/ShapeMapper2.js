@@ -17,8 +17,11 @@ export class ShapeMapper2 {
         if(dataToMap == undefined || dataToMap == null)
             throw NoDataError;
         this.mappedcolors = colormapper;
+        //console.log(this.mappedcolors)
+
             //this._shapeCollection = map_Data_To_Group(workFlowData);
             this.ShapeCollection = this.map_Data_To_Group(dataToMap);
+        //console.log(this.mappedcolors)
     }
 
     // make a new object with the given features
@@ -193,7 +196,6 @@ export class ShapeMapper2 {
         
         // actually bind the textbox and rectangles together in a group
         shapeCollection = this._shapes(shapeCollection);
-        
         return shapeCollection;
     }
     

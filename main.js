@@ -7,6 +7,7 @@ import { ShapeMapper2 } from "./Components/ShapeMapper2";
 import { DiagramMaker2 } from "./Components/DiagramMaker2";
 import { colorMap } from "./Components/colorMap";
 import {ColorMapper} from "./Components/ColorMapper"
+import { Legend } from "./Components/Legends";
 
 function main() {
   const shapeMapper = new ShapeMapper2(obj2, new ColorMapper());
@@ -19,7 +20,9 @@ function main() {
         offsetX = diagramMaker.OffsetX,
         offsetY = diagramMaker.OffsetY;
 
-  const canvas = new Canvas(diagramMaker.Shapes,  totalX + offsetX, totalY + offsetY);
+  const legends = new Legend(totalY, offsetX, shapeMapper.mappedcolors);
+
+  const canvas = new Canvas(diagramMaker.Shapes,  totalX + offsetX, totalY + offsetY, legends);
   
   const imageMaker = new ImageMaker(canvas.canvas);
 }
