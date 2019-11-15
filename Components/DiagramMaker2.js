@@ -19,7 +19,7 @@ export class DiagramMaker2 {
     // getter and setter for the y offset or
     // the offset from the top of the canvas
     get OffsetY() { return this._offsetY; }
-    set OffsetY(offsetX) { this._offsetY = offsetY; }
+    set OffsetY(offsetY) { this._offsetY = offsetY; }
 
     // getter and setter for the current
     //y-coordinate where the next shape to be moved

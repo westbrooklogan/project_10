@@ -27,8 +27,7 @@ export class Legend {
     make_Legend = () => {
         this.arrayLegend = [];
         
-        this.rect = new Label(this.status[1], this.colors[1], this.labelHeight);
-        //console.log(this.rect.label)
+        this._rect = new Label(this.status[1], this.colors[1], this.labelHeight);
         
         this.status.forEach(colorName => {
             var maturityStatus = true;
@@ -43,7 +42,6 @@ export class Legend {
             }
         });
 
-        //console.log(this.arrayLegend)
         this.CurrentY = this.TotalY + this.offsetFromDiagram;
 
         this.arrayLegend.map(labelItem => {
@@ -57,18 +55,11 @@ export class Legend {
 
         this.TotalY = this.CurrentY 
 
-        //this.GroupHeight = this.CurrentY - (this.TotalY + this.offsetFromDiagram);
-        //this.GroupWidth = this.arrayLegend[0].width * 2;
-        this.rect.label.set({
+        this._rect.label.set({
             left: this.offsetX,
             top: this.TotalY + 30
         });
-/*
-        this.finalGruop = new fabric.Group(this.arrayLegend, {
-            width: this.GroupWidth,
-            height: this.GroupHeight
-        });
-*/
+
         return this.arrayLegend
     }
 

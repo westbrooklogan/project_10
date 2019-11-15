@@ -19,37 +19,37 @@ export class Label extends Shape {
         if(this.Width == undefined || this.Width == null || this.Width <= 0)
             this.width = 240;
         
-        this._textBox = this.makeTextBox(status); // make textbox with given text
+        this.makeTextBox(status); // make textbox with given text
         
         // Make text bold
         this._textBox.set({
             fontWeight: "bold"
         });
     
-        this._rectangle = this._rectangle(statusColor);
+        this._newRectangle(statusColor);
         
          // the shape is ready so if any changes to 
         // a shape object, then the shape needs to be changed
         
-        this.Group = this._map_To_Group(); // combine textbox and rectangle
+        this._map_To_Group(); // combine textbox and rectangle
 
         // Move textbox to the left
-        this.Group.item(1).set({
-            left: this.Group.item(1).left + this.Width
+        this._shape.item(1).set({
+            left: this._shape.item(1).left + this.Width
         });
 
-        return this.Group
+        return this._shape;
     }
 
 
-    _rectangle = color => {
+    _newRectangle = color => {
         if(color == null)
             throw NoColorError;
 
         this._textColor = color
 
         // fabric js rectangle
-        return new fabric.Rect({
+        this._rectangle = new fabric.Rect({
             fill: this._textColor,
             width: this.Width,
             height: this.Height, 

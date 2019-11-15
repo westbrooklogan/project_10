@@ -16,12 +16,9 @@ export class ShapeMapper2 {
     constructor(dataToMap, colormapper) {    
         if(dataToMap == undefined || dataToMap == null)
             throw NoDataError;
-        this.mappedcolors = colormapper;
-        //console.log(this.mappedcolors)
 
-            //this._shapeCollection = map_Data_To_Group(workFlowData);
-            this.ShapeCollection = this.map_Data_To_Group(dataToMap);
-        //console.log(this.mappedcolors)
+        this.mappedcolors = colormapper;
+        this.ShapeCollection = this.map_Data_To_Group(dataToMap);
     }
 
     // make a new object with the given features
@@ -31,25 +28,8 @@ export class ShapeMapper2 {
         shape.Width = (width == undefined || width == null) ? 240 : width;
         // give it text or an empty string
         shape.Text = name;
-        
-        // give it a status and generate random colors and
-        // their respective brightness for statuses that don't 
-        // already map to a color if the status exists then just map it
-        if(status in colorMap) {
-            var color = colorMap[status];
-            var brightness = this.mappedcolors._brightness_Calc(color);
-            this.mappedcolors._addNewstatus(status, color, brightness);
-        }
-         else
-            this.mappedcolors._generate_Status(status);
-    
-   
         shape.Status = status;
-
-        // the text color should be black for lighter colors and 
-        // white for darker colors
-        shape.adjustTextColor(this.mappedcolors._brightness[status]);
-
+        this._mapColorToShape(shape); 
         var shapeChildren = [];
 
         // if the shape has children then perform this operation on each child
@@ -69,6 +49,24 @@ export class ShapeMapper2 {
         };
     }
     
+    _mapColorToShape = (shape) => {
+        var status = shape.Status;
+        // give it a status and generate random colors and
+        // their respective brightness for statuses that don't 
+        // already map to a color if the status exists then just map it
+        if(status in colorMap) {
+            var color = colorMap[status];
+            var brightness = this.mappedcolors._brightness_Calc(color);
+            this.mappedcolors._addNewstatus(status, color, brightness);
+        }
+         else
+            this.mappedcolors._generate_Status(status);
+    
+        // the text color should be black for lighter colors and 
+        // white for darker colors
+        shape.adjustTextColor(this.mappedcolors._brightness[status]);
+    }
+
     // adjusting the shapes height according the shape with the 
     // greatest height.
     change_Shapes_To_Max_Height = (shapeCollection, height) =>  
@@ -163,17 +161,13 @@ export class ShapeMapper2 {
         var level = data[0].Level;
         var content = data[0].Content;
         var previousContent = data[1].Content;
-
         var maxYHeight = 0;
-        var contentWidth = [];
 
         var result = {
             Level: this._makeShape(level, "Level", null, 240),
             
             Content : content.map((item, index) => {
                 var w = previousContent.length * width[index];
-                
-                contentWidth.push(item.length * w);
 
                 return item.map(itemInfo => {
                     var status = (itemInfo.Status == undefined || itemInfo.Status == null) ?

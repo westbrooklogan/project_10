@@ -2,6 +2,8 @@ import { fabric } from "fabric";
 import { NoStatusError, NoTextError, BadRectangleError, BadTextBoxError } from "../Errors/DataErrors";
 import { colorMap } from "../Components/colorMap";
 
+var RECT = 0;
+var TEXT = 1;
 // shape class that stores information about the shapes
 export class Shape {
     constructor() {
@@ -33,9 +35,14 @@ export class Shape {
         this._height = height;
         
         // if there is no text, then there 
-        if(this._textBox != undefined && this._textBox != null  && 
-            this._width > 0)
-                this.TextBox = this._makeTextboxWithHeight();
+        if(this._textBox != undefined && this._textBox != null) {
+            this._setTextBoxHeight();
+
+            if(this._shape != undefined && this._shape != null)
+            this._setShapeHeight();
+        }
+        else   
+            this._makeTextboxWithHeight();
     }
 
     //getter and setter for width
@@ -47,8 +54,14 @@ export class Shape {
         
         this._width = width;
 
-        if(this._text != undefined && this._text != null)
-            this.TextBox = this.makeTextBox(this.Text); 
+        if(this._textBox != undefined && this._textBox != null) {
+            this._setTextBoxWidth();
+
+            if(this._shape != undefined && this._shape != null)
+                this._setShapeWidth();
+        }
+        else
+            this.makeTextBox(this.Text); 
      }
     
     // getter and setter of text color
@@ -71,10 +84,13 @@ export class Shape {
 
         this._color = color;
 
-        this.Rectangle.fill = color;
+        
+        this._rectangle.set({ fill: color });
 
-        if(this._textBox != undefined && this._textBox != null)
-            this.Shape = this._map_To_Group();
+        if(this._shape != undefined && this._shape != null)
+            this._shape.item(RECT).set({ fill: color });
+        else if(this._textBox != undefined && this._textBox != null)
+            this._map_To_Group();
     }
 
     // getter and setter for text
@@ -83,7 +99,14 @@ export class Shape {
     set Text(text) { 
         this._text = text;
 
-        this.makeTextBox(text);
+        if(this._textBox != undefined && this._textBox != null) {
+            this._textBox.set({ text });
+            
+            if(this._shape != undefined && this._shape != null)
+                this._shape.item(TEXT).set({ text });
+        }
+        else
+            this.makeTextBox(text);
     }
     
     // getter and setter for the textbox
@@ -99,7 +122,7 @@ export class Shape {
         
         // if the shape is ready to map to a group then map it 
         if(this.ShapeReady)
-            this.Shape = this._map_To_Group();
+            this._map_To_Group();
     }
 
     // getter and setter rectangle
@@ -115,41 +138,83 @@ export class Shape {
         
         // if shape is ready then map to group with the textbox
         if(this.ShapeReady)
-            this.Shape = this._map_To_Group();
+            this._map_To_Group();
     }
     
     // getter and setter for the status
     get Status() { return this._status; }
 
     set Status(status) { 
-        this._status = status;
-
         // if shape is ready make a rectangle that determines the color
-        if(this.ShapeReady)
-            this.Rectangle = this.rectangle(status);
+       
+        if(this._rectangle != undefined && this._rectangle != null) 
+           this._setRectangle();
+        else {
+            this._status = status;
+
+            if(this.ShapeReady)
+                this._newRectangle(status);
+        }
     }
     
     adjustTextColor = brightness => {
-        if(brightness <= 60)
+        if(brightness <= 80)
             this.TextColor = "#ffffff";
+    }
+
+    _setTextBoxHeight = () => {
+        var height = this._height;
+        var text = this._text;
+        this._textBox.set({ height, text });
+    }
+
+    _setTextBoxWidth = () => {
+        var width = this._width;
+        var text = this._text;
+        this._textBox.set({ width, text });
+    }
+
+    _setShapeHeight = () => {
+        var height = this._height;
+        var text = this._text;
+        this._shape.item(RECT).set({ height });
+        this._shape.item(TEXT).set({ height, text });
+        this._shape.set({ height });
+    }
+
+    _setShapeWidth = () => {
+        var width = this._width;
+        var text = this._text;
+        this._shape.item(RECT).set({ width });
+        this._shape.item(TEXT).set({ width, text });
+        this._shape.set({ width });
+    }
+
+    _setRectangle = () => {
+        this._determineColor(status);
+        var fill = this._color;
+        this._rectangle.set({ fill });
+
+        if(this._shape != undefined && this._shape != null)
+            this._shape.item(RECT).set({ fill });
     }
 
     // make the shape with a given text, status, and width
     makeShape = (text, status, width) => {
         this.Width = width;
 
-        this._textBox = this.makeTextBox(text); // make a text box with the given text
+        this.makeTextBox(text); // make a text box with the given text
         
         // set the height of the textbox to either the 
         //set height, or a default if the text box doesn't have a height
         this.TextBox.height == 0 ? this._height = this._width / 2 : this._height = this.TextBox.height;
     
-        this.rectangle = _rectangle(status);
+        this._newRectangle(status);
         
         // the shape is ready so if any changes to 
         // a shape object, then the shape needs to be changed
         this.ShapeReady = true;
-        this.Shape = this._map_To_Group(); // combine textbox and rectangle
+        this._map_To_Group(); // combine textbox and rectangle
     }
 
     // make the shape with a given text, and status
@@ -158,18 +223,18 @@ export class Shape {
         if(this.Width == undefined || this.Width == null || this.Width <= 0)
             this._width = 240;
         
-        this._textBox = this.makeTextBox(text); // make textbox with given text
+        this.makeTextBox(text); // make textbox with given text
         
          // set the height of the textbox to either the 
         //set height, or a default if the text box doesn't have a height
         this.TextBox.height == 0 ? this._height = this._width / 2 : this._height = this.TextBox.height;
     
-        this._rectangle = this._rectangle(status);
+        this._newRectangle(status);
         
          // the shape is ready so if any changes to 
         // a shape object, then the shape needs to be changed
         this.ShapeReady = true;
-        this.Shape = this._map_To_Group(); // combine textbox and rectangle
+        this._map_To_Group(); // combine textbox and rectangle
     }
 
     // make the shape
@@ -181,23 +246,23 @@ export class Shape {
         if(this.Width == undefined || this.Width == null || this.Width <= 0)
             this._width = 240;
         
-        this._rectangle = this._rectangle(this.Status);
+        this._newRectangle(this.Status);
         
         // the shape is ready so if any changes to 
         // a shape object, then the shape needs to be changed
         this.ShapeReady = true;
-        this.Shape = this._map_To_Group(); // combine textbox and rectangle
+        this._map_To_Group(); // combine textbox and rectangle
     }
 
     makeTextBox = text => {
         if(text == undefined || text == null)
             throw NoTextError;
-        
+    
         this._text = text;
         // fabricjs text object
         // the text argument is a string
-        return new fabric.Textbox(text, {
-            fontSize: 16, // size of text
+        this._textBox = new fabric.Textbox(text, {
+            fontSize: 24, // size of text
             originX: 'center', // horizontal orientation to origin
             originY: 'center', // vertical orientation to origin
             fixedWidth: this.Width,
@@ -216,8 +281,8 @@ export class Shape {
 
         // fabricjs text object
         // the text argument is a string
-        return new fabric.Textbox(this._text, {
-            fontSize: 18, // size of text
+        this._textBox = new fabric.Textbox(this._text, {
+            fontSize: 24, // size of text
             originX: 'center', // horizontal orientation to origin
             originY: 'center', // vertical orientation to origin
             fixedWidth: this.Width,
@@ -229,17 +294,18 @@ export class Shape {
     }
 
     // map a rectangle and textbox to a group
-    _map_To_Group = () => 
-        new fabric.Group([this.Rectangle, this.TextBox], {
+    _map_To_Group = () => {
+        this.Shape = new fabric.Group([this.Rectangle, this.TextBox], {
             width: this.Width,
             height: this.Height,
         });
+    }
 
-    _rectangle = status => {
+    _newRectangle = status => {
         this._determineColor(status);
         
         // fabric js rectangle
-        return new fabric.Rect({
+        this._rectangle = new fabric.Rect({
             fill: this.Color,
             width: this.Width,
             height: this.Height, 
