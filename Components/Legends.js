@@ -1,5 +1,6 @@
 import { fabric } from "fabric";
 import { Label } from "./Label";
+import { nonMaturityStatuses } from "./nonMaturityStatuses";
 
 //import { colorMap } from "./Components/colorMap";
 
@@ -30,9 +31,16 @@ export class Legend {
         //console.log(this.rect.label)
         
         this.status.forEach(colorName => {
-            console.log(colorName)
+            var maturityStatus = true;
+            nonMaturityStatuses.forEach(status => {
+                if (colorName == status) {
+                    maturityStatus = false;
+                }
+            });
+            if (maturityStatus) {
             this.colorStatus = this.mapColors[colorName];
             this.arrayLegend.push(new Label(colorName, this.colorStatus, this.labelHeight));
+            }
         });
 
         //console.log(this.arrayLegend)
@@ -49,8 +57,8 @@ export class Legend {
 
         this.TotalY = this.CurrentY 
 
-        this.GroupHeight = this.CurrentY - (this.TotalY + this.offsetFromDiagram);
-        this.GroupWidth = this.arrayLegend[0].width * 2;
+        //this.GroupHeight = this.CurrentY - (this.TotalY + this.offsetFromDiagram);
+        //this.GroupWidth = this.arrayLegend[0].width * 2;
         this.rect.label.set({
             left: this.offsetX,
             top: this.TotalY + 30
