@@ -36,7 +36,7 @@ export class ColorMapper{
             // its brightness
             newColor = '#'+Math.floor(Math.random()*16777215).toString(16);
             if(newColor.length < 7) { newColor += "0" }       
-                brightness = this._brightness_Calc(newColor); 
+                brightness = this.brightness_Calc(newColor); 
         }while(brightness < 20 || brightness > 85);
         
         colorMap[status] = newColor; // add color map to status
@@ -47,7 +47,7 @@ export class ColorMapper{
     // the hex bits that represent the 
     // rgb (red,green,blue) values of
     // the given color
-    _brightness_Calc = (color) => {
+    brightness_Calc = (color) => {
         var c = color.substring(1);
         var rgb = parseInt(c, 16);
         var r = (rgb >> 16) & 0xff;

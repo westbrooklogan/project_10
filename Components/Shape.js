@@ -146,7 +146,6 @@ export class Shape {
 
     set Status(status) { 
         // if shape is ready make a rectangle that determines the color
-       
         if(this._rectangle != undefined && this._rectangle != null) 
            this._setRectangle();
         else {

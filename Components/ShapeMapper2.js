@@ -16,7 +16,8 @@ export class ShapeMapper2 {
     constructor(dataToMap, colormapper) {    
         if(dataToMap == undefined || dataToMap == null)
             throw NoDataError;
-
+            
+        this.colorMap = dataToMap.ColorMap;
         this.mappedcolors = colormapper;
         this.ShapeCollection = this.map_Data_To_Group(dataToMap);
     }
@@ -55,9 +56,10 @@ export class ShapeMapper2 {
         // their respective brightness for statuses that don't 
         // already map to a color if the status exists then just map it
         if(status in colorMap) {
-            var color = colorMap[status];
-            var brightness = this.mappedcolors._brightness_Calc(color);
-            this.mappedcolors._addNewstatus(status, color, brightness);
+            var colorStatus = colorMap[status];
+            var color = colorStatus.color;
+            var brightness = this.mappedcolors.brightness_Calc(color);
+            this.mappedcolors._addNewstatus(status, colorStatus, brightness);
         }
          else
             this.mappedcolors._generate_Status(status);
