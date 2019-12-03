@@ -1,20 +1,20 @@
-import { colorMap } from "./colorMap";
 
 // color mapper class that maps statuses to colors and their brightnesses
 // or generates random colors and their respective brightness if 
 // an unknown/unmapped status is encountered
 export class ColorMapper{
 
-    constructor(){
+    constructor(colorMap){
         this._statuses = {}; // map for statuses
         this._brightness = {}; // map for their respective brightness
+        this._colorMap = colorMap;
     }
 
     // add a new status to the mapped statuses if not
     // already mapped
-    _addNewstatus(status, color, brightness){
+    _addNewstatus(status, colorStatus, brightness){
         if(!(status in this._statuses)) {
-            this._statuses[status] = color;
+            this._statuses[status] = colorStatus;
             this._brightness[status] = brightness;
         }
     }
@@ -39,8 +39,12 @@ export class ColorMapper{
                 brightness = this.brightness_Calc(newColor); 
         }while(brightness < 20 || brightness > 85);
         
-        colorMap[status] = newColor; // add color map to status
-        this._addNewstatus(status, newColor, brightness);
+        newStatus = {
+            "color" : newColor,
+            "maturityStatus": "Maturity"
+        }; // add color map to status
+
+        this._addNewstatus(status, newStatus, brightness);
     }
     
     // calculate the brightness by using

@@ -2,7 +2,7 @@
     "ColorMap":{
         "Undefined" : {
             "color": "#B60000",
-            "maturityStatus": "maturity"
+            "maturityStatus": "Maturity"
         },
         "Low Maturity" : "#FF81A3",
         "Medium Maturity" : "#FFFF00",
@@ -14,6 +14,7 @@
         "L1 Business Process" : "#15009B",
         "L2 Business Process" : "#4599d9"
     },
+
     "Content": [
         [
             {

@@ -10,7 +10,7 @@ import {ColorMapper} from "./Components/ColorMapper"
 import { Legend } from "./Components/Legends";
 
 function main() {
-  const shapeMapper = new ShapeMapper2(obj2, new ColorMapper());
+  const shapeMapper = new ShapeMapper2(obj2, new ColorMapper(obj2.ColorMap));
   const collection = shapeMapper.ShapeCollection;
   
   const diagramMaker = new DiagramMaker2(collection);
