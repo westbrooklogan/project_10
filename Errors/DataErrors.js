@@ -20,3 +20,5 @@ export var ShapeCollectionError = new Error("The shaped data given was null, und
 
 export var NoColorError = new Error("Color is not defined.\n \
     Please enter valid color to map to a diagram.");
+
+export var MaturityError = new Error("Please provide a valid maturity status.\n");
