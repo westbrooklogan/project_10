@@ -4,15 +4,42 @@
             "color": "#B60000",
             "maturityStatus": "Maturity"
         },
-        "Low Maturity" : "#FF81A3",
-        "Medium Maturity" : "#FFFF00",
-        "High Maturity" : "#8ADF92",
-        "Out of Scope" : "#C6C6C6",
-        "Level": "#15009B",
-        "WorkStream" : "#338219",
-        "Portfolio" : "#d96818",
-        "L1 Business Process" : "#15009B",
-        "L2 Business Process" : "#4599d9"
+        "Low Maturity"  : {
+            "color": "#FF81A3",
+            "maturityStatus": "Maturity"
+        },
+        "Medium Maturity" : {
+            "color": "#FFFF00",
+            "maturityStatus": "Maturity"
+        },
+        "High Maturity" : {
+            "color": "#8ADF92",
+            "maturityStatus": "Maturity"
+        },
+        "Out of Scope" : {
+            "color": "#C6C6C6",
+            "maturityStatus": "Maturity"
+        },
+        "Level": {
+            "color": "#15009B",
+            "maturityStatus": "Maturity"
+        },
+        "WorkStream" : {
+            "color": "#338219",
+            "maturityStatus": "Maturity"
+        },
+        "Portfolio" : {
+            "color": "#d96818",
+            "maturityStatus": "Maturity"
+        },
+        "L1 Business Process" : {
+            "color": "#15009B",
+            "maturityStatus": "Maturity"
+        },
+        "L2 Business Process" : {
+            "color": "#4599d9",
+            "maturityStatus": "Maturity"
+        }
     },
 
     "Content": [
