@@ -141,7 +141,7 @@
                             "Name": "Perform General Accounting"
                         },
                         {
-                            "Name": "Perform Reporting" 
+                            "Name": "Perform Reporting"
                         },
                         {
                             "Name": "Manage Treasury Operations"
@@ -177,9 +177,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Invoice & Billing",
                             "Status": "Low Maturity",
@@ -201,9 +199,7 @@
                                     "Status": "Medium Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Revenue Recognition",
                             "Status": "Undefined",
@@ -217,9 +213,7 @@
                                     "Status": "Low Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Master Data (Sales, Orders, Customers)",
                             "Status": "Low Maturity",
@@ -229,9 +223,7 @@
                                     "Status": "Low Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Analytics",
                             "Status": "Out of Scope"
@@ -267,9 +259,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Perform Cost Accounting and Control",
                             "Status": "Undefined",
@@ -279,9 +269,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Verify AP Pay File With PO Vender Master File",
                             "Status": "Undefined",
@@ -308,12 +296,10 @@
                                 },
                                 {
                                     "Name": "Develop Tax Strategy and Plan",
-                                    "Status": "New Status"
+                                    "Status": "Out of Scope"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Export Expense Report",
                             "Status": "Medium Maturity",
@@ -327,9 +313,7 @@
                                     "Status": "Medium Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Master Data (Vendors)",
                             "Status": "Low Maturity",
@@ -359,10 +343,7 @@
                                     "Status": "Low Maturity"
                                 }
                             ]
-                        }
-                        
-                    ],
-                    [
+                        },
                         {
                             "Name": "Chart of Accounts/Indirect Pools",
                             "Status": "Low Maturity",
@@ -392,9 +373,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Perform Internal Management Reporting",
                             "Status": "Low Maturity",
@@ -404,9 +383,7 @@
                                     "Status": "Medium Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Manage Treasury Policies and Procedures",
                             "Status": "High Maturity",
@@ -424,9 +401,7 @@
                                     "Status": "High Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Corporate Tax and Regulatory Compliances",
                             "Status": "Medium Maturity",
@@ -573,9 +548,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Invoice & Billing",
                             "Status": "Low Maturity",
@@ -597,9 +570,7 @@
                                     "Status": "Medium Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Revenue Recognition",
                             "Status": "Undefined",
@@ -613,9 +584,7 @@
                                     "Status": "Low Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Master Data (Sales, Orders, Customers)",
                             "Status": "Low Maturity",
@@ -625,9 +594,7 @@
                                     "Status": "Low Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Analytics",
                             "Status": "Out of Scope"
@@ -663,9 +630,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Perform Cost Accounting and Control",
                             "Status": "Undefined",
@@ -675,9 +640,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Verify AP Pay File With PO Vender Master File",
                             "Status": "Undefined",
@@ -707,9 +670,7 @@
                                     "Status": "Out of Scope"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Export Expense Report",
                             "Status": "Medium Maturity",
@@ -723,9 +684,7 @@
                                     "Status": "Medium Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Master Data (Vendors)",
                             "Status": "Low Maturity",
@@ -755,10 +714,7 @@
                                     "Status": "Low Maturity"
                                 }
                             ]
-                        }
-                        
-                    ],
-                    [
+                        },
                         {
                             "Name": "Chart of Accounts/Indirect Pools",
                             "Status": "Low Maturity",
@@ -788,9 +744,7 @@
                                     "Status": "Undefined"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Perform Internal Management Reporting",
                             "Status": "Low Maturity",
@@ -800,9 +754,7 @@
                                     "Status": "Medium Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Manage Treasury Policies and Procedures",
                             "Status": "High Maturity",
@@ -820,9 +772,7 @@
                                     "Status": "High Maturity"
                                 }
                             ]
-                        }
-                    ],
-                    [
+                        },
                         {
                             "Name": "Corporate Tax and Regulatory Compliances",
                             "Status": "Medium Maturity",
