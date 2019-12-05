@@ -21,6 +21,7 @@ export class Legend {
         this.offsetFromDiagram = 30;
         this.legend = this.make_Legend();
 
+        console.log(this.mapColors)
     
     }
 
@@ -30,15 +31,20 @@ export class Legend {
         this._rect = new Label(this.status[1], this.colors[1], this.labelHeight);
         
         this.status.forEach(colorName => {
+            /*
             var maturityStatus = true;
             nonMaturityStatuses.forEach(status => {
                 if (colorName == status) {
                     maturityStatus = false;
                 }
-            });
-            if (maturityStatus) {
-            this.colorStatus = this.mapColors[colorName];
-            this.arrayLegend.push(new Label(colorName, this.colorStatus, this.labelHeight));
+            });*/
+            //console.log(this.mapColors[colorName])
+
+            if (this.mapColors[colorName]['maturityStatus'] == 'Maturity') {
+                //console.log(this.mapColors[colorName]['maturityStatus'])
+                this.colorStatus = this.mapColors[colorName]['color'];
+                //console.log(this.colorStatus)
+                this.arrayLegend.push(new Label(colorName, this.colorStatus, this.labelHeight));
             }
         });
 

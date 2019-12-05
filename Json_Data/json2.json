@@ -22,25 +22,27 @@
         },
         "Level": {
             "color": "#15009B",
-            "maturityStatus": "Maturity"
+            "maturityStatus": "Non-Maturity"
         },
         "WorkStream" : {
             "color": "#338219",
-            "maturityStatus": "Maturity"
+            "maturityStatus": "Non-Maturity"
         },
         "Portfolio" : {
             "color": "#d96818",
-            "maturityStatus": "Maturity"
+            "maturityStatus": "Non-Maturity"
         },
         "L1 Business Process" : {
             "color": "#15009B",
-            "maturityStatus": "Maturity"
+            "maturityStatus": "Non-Maturity"
         },
         "L2 Business Process" : {
             "color": "#4599d9",
-            "maturityStatus": "Maturity"
+            "maturityStatus": "Non-Maturity"
         }
     },
+
+    
 
     "Content": [
         [
@@ -836,5 +838,6 @@
             }
         ]
     ]
+    
 }
            

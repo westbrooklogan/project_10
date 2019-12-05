@@ -12,10 +12,13 @@ export class ColorMapper{
 
     // add a new status to the mapped statuses if not
     // already mapped
-    _addNewstatus(status, colorStatus, brightness){
+    _addNewstatus(colorStatus, brightness){
+        var status = colorStatus.status;
+        
         if(!(status in this._statuses)) {
             this._statuses[status] = colorStatus;
             this._brightness[status] = brightness;
+
         }
     }
 
@@ -27,6 +30,7 @@ export class ColorMapper{
     // generate a random color and its respective brightness
     // for a given status
     _generate_Status = (status) => {
+        console.log(status)
         var newColor;
         var brightness;
         // as long as it is to bright or too dark
@@ -39,12 +43,13 @@ export class ColorMapper{
                 brightness = this.brightness_Calc(newColor); 
         }while(brightness < 20 || brightness > 85);
         
-        newStatus = {
+        var newStatus = {
             "color" : newColor,
-            "maturityStatus": "Maturity"
+            "maturityStatus": "Maturity",
+            "status": status
         }; // add color map to status
 
-        this._addNewstatus(status, newStatus, brightness);
+        this._addNewstatus(newStatus, brightness);
     }
     
     // calculate the brightness by using

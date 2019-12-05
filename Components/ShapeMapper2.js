@@ -1,6 +1,6 @@
 import { Shape } from "./Shape";
 import { NoDataError } from "../Errors/DataErrors";
-import { colorMap } from "./colorMap";
+//import { colorMap } from "./colorMap";
 import { ColorMapper } from "./ColorMapper";
 
 // maps work flow data into shapes
@@ -17,9 +17,14 @@ export class ShapeMapper2 {
         if(dataToMap == undefined || dataToMap == null)
             throw NoDataError;
             
-        this.colorMap = dataToMap.ColorMap;
         this.mappedcolors = colormapper;
+        this.colorMap = dataToMap.ColorMap;
+
+        //console.log(dataToMap.Diagram);
+
         this.ShapeCollection = this.map_Data_To_Group(dataToMap);
+        //console.log(this.mappedcolors);
+
     }
 
     // make a new object with the given features
@@ -51,17 +56,33 @@ export class ShapeMapper2 {
     }
     
     _mapColorToShape = (shape) => {
+        //console.log(shape)
         var status = shape.Status;
+        //console.log(status)
+        //console.log(this.mappedcolors)
         // give it a status and generate random colors and
         // their respective brightness for statuses that don't 
         // already map to a color if the status exists then just map it
-        if(status in colorMap) {
-            var colorStatus = colorMap[status];
-            var color = colorStatus.color;
-            var brightness = this.mappedcolors.brightness_Calc(color);
-            this.mappedcolors._addNewstatus(status, colorStatus, brightness);
+        //console.log(this.mappedcolors._statuses)
+
+        //console.log(this.mappedcolors._statuses.status)
+
+        var colorStatus = this.colorMap[status];
+        
+        if(colorStatus != undefined){
+            colorStatus.status = status;
+
+            if (colorStatus in this.mappedcolors._statuses) {
+            
+                //console.log(colorStatus)
+                var color = colorStatus.color;
+                //console.log(color)
+                var brightness = this.mappedcolors.brightness_Calc(color);
+                this.mappedcolors._addNewstatus(colorStatus, brightness);
+            }
         }
          else
+            //console.log("else")
             this.mappedcolors._generate_Status(status);
     
         // the text color should be black for lighter colors and 
