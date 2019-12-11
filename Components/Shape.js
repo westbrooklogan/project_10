@@ -1,18 +1,18 @@
 import { fabric } from "fabric";
 import { NoStatusError, NoTextError, BadRectangleError, BadTextBoxError } from "../Errors/DataErrors";
-import { colorMap } from "../Components/colorMap";
 
 var RECT = 0;
 var TEXT = 1;
 // shape class that stores information about the shapes
 export class Shape {
-    constructor() {
+    constructor(colorMap) {
         this._width = 240;
         this._status = null;
         this._text = "";
         this._shapeReady = false;
         this._height = 120;
         this._textColor = "#000000";
+        this.colorMap = colorMap;
     }
     
     // indicates if the shapes are ready to be generated
@@ -320,9 +320,9 @@ export class Shape {
     _determineColor = status => {
         if(status == null || status == undefined)
             throw NoStatusError;
-        
-        this._status = status
-        this._color = colorMap[this.Status];
+
+        this._status = status;
+        this._color = this.colorMap[status].color;
     }
 }
 

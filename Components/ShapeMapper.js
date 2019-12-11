@@ -1,238 +1,245 @@
-import { colorMap } from "./colorMap";
 import { Shape } from "./Shape";
-import { fabric } from "fabric";
-
-// constants for workflow levels
-const WORKSTREAM = "Workstream",
-      PORTFOLIO =  "Portfolio",
-      L1_BUSINESS_PROCESS = "L1 Business Process",
-      L2_BUSINESS_PROCESS = "L2 Business Process",
-      L3_BUSINESS_PROCESS = "L3 Business Process",
-      WORKFLOW_LEVEL = "Workflow Level",
-      DEFAULT_WIDTH = 160,
-      DEFAULT_HEIGHT = 80,
-      PADDING = 10;
+import { NoDataError } from "../Errors/DataErrors";
+//import { colorMap } from "./colorMap";
+import { ColorMapper } from "./ColorMapper";
 
 // maps work flow data into shapes
 export class ShapeMapper {
+
     // get/set the shape collection of the shape mapper
     get ShapeCollection() { return this._shapeCollection; }
     set ShapeCollection(shapeCollection) { this._shapeCollection = shapeCollection; }
+    get ColorMap() { return this._colorMap; }
+    set ColorMap(colorMap) { this._colorMap = colorMap; }
 
-    // constructor that maps workflow data
-    constructor(workFlowData) {
-        if(workFlowData != undefined || workFlowData != null)
-            //this._shapeCollection = map_Data_To_Group(workFlowData);
-            this.ShapeCollection = this.map_Data_To_Group(workFlowData);
+    // constructor that maps Data
+    constructor(dataToMap, colormapper) {    
+        if(dataToMap == undefined || dataToMap == null)
+            throw NoDataError;
+            
+        this.mappedcolors = colormapper;
+        this.ColorMap = dataToMap.ColorMap;
+
+        this.ShapeCollection = this.map_Data_To_Group(dataToMap);
+
     }
+
+    // make a new object with the given features
+    _makeShape = (name, status, children, width) => {
+        var shape = new Shape(this.ColorMap); // make a new shape
+        // give it a width
+        shape.Width = (width == undefined || width == null) ? 240 : width;
+        // give it text or an empty string
+        shape.Text = name;
+        shape.Status = status;
+        this._mapColorToShape(shape); 
+        var shapeChildren = [];
+
+        // if the shape has children then perform this operation on each child
+        if(children != undefined && children != null && children.length)
+            children.map(child => {
+                var childStatus = (child.Status == undefined || child.Status == null) ?
+                    status : child.Status;
+
+                shapeChildren.push(this._makeShape(child.Name, childStatus, child.Children, width));
+            });
+        
+        // return the shape with its current height.
+        return {
+            Shape: shape,
+            Children: shapeChildren,
+            Y_Height: shapeChildren.length
+        };
+    }
+    
+    _mapColorToShape = (shape) => {
+        var status = shape.Status;
+       
+        // give it a status and generate random colors and
+        // their respective brightness for statuses that don't 
+        // already map to a color if the status exists then just map it
+        
+        if(this.ColorMap[status] != undefined) {
+            var colorStatus = this.ColorMap[status];
+            var color = colorStatus.color;
+            var brightness = this.mappedcolors.brightness_Calc(color);
+            this.mappedcolors._addNewstatus(status, colorStatus, brightness);
+        }
+         else {
+            this.mappedcolors._generate_Status(status);
+            this.ColorMap[status] = this.mappedcolors._colorMap[status];
+         }
+    
+        // the text color should be black for lighter colors and 
+        // white for darker colors
+        shape.adjustTextColor(this.mappedcolors._brightness[status]);
+    }
+
+    // adjusting the shapes height according the shape with the 
+    // greatest height.
+    change_Shapes_To_Max_Height = (shapeCollection, height) =>  
+        shapeCollection.map(item => {
+            // if its is a level the set the level's height 
+            // according to all the total height of all its children
+            (item.Level == undefined || item.Level == null) ?
+                item.Shape.Height = height :
+                    item.Level.Shape.Height = item.MaxYHeight * height;
+
+            // if it has children or content then perform this operation
+            // on them. Note: can't have both, it is either a level with
+            // content or it is a content item with children
+            var children = item.Children;
+            var content = item.Content;
+
+            if(content != undefined && content != null && content.length)
+                content.map(shape => this.change_Shapes_To_Max_Height(shape, height));
+                    
+            if(children != undefined && children != null && children.length)
+                this.change_Shapes_To_Max_Height(children, height);
+
+            return item;
+        });
+    
+    // map the data to a group
+    _map_To_Group = data => {  
+        if(data == undefined || data == null)
+            throw NoDataError;
+
+        var shapeCollection = [];
+        var maxHeight = 0;
+        var last = data.length - 1;
+        var width = [];
+        var maxWidth = 0;
+        var prevLength = 1;
+
+        // must map the data in reverse order
+        // must know the width of children to 
+        // know the width of the parent
+        for(let i = last; i > 0; i--) {
+            var level = data[i].Level;
+            var content = data[i].Content;
+            var maxYHeight = 0;
+            var contentWidth = [];
+            var prevWidth = 0;
+
+            // the result
+            var result = {
+                // make a shape for the level
+                Level: this._makeShape(level, "Level", null, 240),
+
+                // make the shape for each item in the content
+                Content : content.map((item, index) => {
+                    // the width should be based on the width of the last processed items  
+                    var w = (width[index] == undefined || width[index] == null) ? 240 : width[index] / item.length;
+                    // the width of the current item should be stored for use 
+                    // in next iteration of item operations. the length is 
+                    // the number of items times the width so the next item
+                    // with have a width that spans the next level down
+                   
+                    //width.forEach(wd => prevWidth += wd);
+                    var fullW = w * item.length;
+                    contentWidth.push(fullW);
+                    
+                    // process each item
+                    return item.map(itemInfo => {
+                        // get the status if it exists otherwise color it based on the level
+                        // in which it is located
+                        var status = (itemInfo.Status == undefined || itemInfo.Status == null) ?
+                            status = level : status = itemInfo.Status;
+                        prevWidth += w;
+                        maxWidth = Math.max(maxWidth, prevWidth);
+                        // make the shape
+                        var shape = this._makeShape(itemInfo.Name, status, itemInfo.Children, w);
+                        // the element with the biggest height
+                        maxHeight = Math.max(maxHeight, shape.Shape.Height);
+                        // the element with the most children
+                        maxYHeight = Math.max(maxYHeight, shape.Y_Height);
+                        return shape;
+                    });
+                }),
+                // the most number of children plus the parent element
+                MaxYHeight : maxYHeight + 1
+            };
+            // push onto the collection and use the width
+            // of current items processed be used for next
+            // iteration of item processing
+            shapeCollection.push(result);
+            width = contentWidth;
+        }
+
+        /*******************************************************
+         * the below code performs the same operation above but *
+         * for the last element in the list so refer to the     *
+         * inline comments in the for loop above                *
+         ********************************************************/   
+        var level = data[0].Level;
+        var content = data[0].Content;
+        var maxYHeight = 0;
+
+        var result = {
+            Level: this._makeShape(level, "Level", null, 240),
+            
+            Content : content.map((item, index) => {
+                var w = 0;
+                w = maxWidth;
+                return item.map(itemInfo => {
+                    var status = (itemInfo.Status == undefined || itemInfo.Status == null) ?
+                        status = level : status = itemInfo.Status;
+
+                    var shape = this._makeShape(itemInfo.Name, status, itemInfo.Children, w);
+                    maxHeight = Math.max(maxHeight, shape.Shape.Height);
+                    maxYHeight = Math.max(maxYHeight, shape.Y_Height);
+                    return shape;
+                });
+            }),
+
+            MaxYHeight : maxYHeight + 1
+        };
+
+        shapeCollection.push(result);
+
+        // change all the shapes' height to the max height found
+        shapeCollection = this.change_Shapes_To_Max_Height(shapeCollection, maxHeight);
+        
+        // actually bind the textbox and rectangles together in a group
+        shapeCollection = this._shapes(shapeCollection);
+        return shapeCollection;
+    }
+    
+    //bind the textbox and rectangles together in a group
+    _shapes = (shapeCollection) => 
+        shapeCollection.map(collection => {
+            var children = collection.Children;
+            var content = collection.Content;
+            // make bind to group for either level or content
+            (collection.Level == undefined || collection.Level == null) ?
+                collection.Shape.makeShape():
+                    collection.Level.Shape.makeShape();
+
+            // bind to group for children or content. Remember that only levels
+            // have content and content elements have children, never both
+            if(children != undefined && children != null && children.length)
+                this._shapes(children);
+
+            if(content != undefined && content != null && content.length)
+                content.map(shapes =>
+                    this._shapes(shapes)
+                );
+            
+            return collection;
+        });
 
     // maps all the workflow elements to shapes and groups them
-    map_Data_To_Group = workFlowData => {
+    map_Data_To_Group = dataToMap => {
         
-        if(workFlowData == undefined || workFlowData == null)
-            return null;
-        
-        // get each workflow level element from the workflow data
-        const workStream = workFlowData[WORKSTREAM],
-              portfolio = workFlowData[PORTFOLIO],
-              l1_BusinessProcess = workFlowData[L1_BUSINESS_PROCESS],
-              l2_BusinessProcess = workFlowData[L2_BUSINESS_PROCESS],
-              l3_BusinessProcess = workFlowData[L3_BUSINESS_PROCESS];
-
-        // if any of the workflow elements are undefined or null or empty then error
-        if(workStream == undefined || workStream == null || workStream.length == 0 ||
-            portfolio == undefined || portfolio == null || portfolio.length == 0 ||
-            l1_BusinessProcess == undefined || l1_BusinessProcess == null || l1_BusinessProcess.length == 0 ||
-            l2_BusinessProcess == undefined || l2_BusinessProcess == null || l2_BusinessProcess.length == 0 ||
-            l3_BusinessProcess == undefined || l3_BusinessProcess == null || l3_BusinessProcess.length == 0) {
-            
-            console.error("Please makes sure no business level is undefined or null.\n");
-            return null;
-        }
-        
-        var maxHeight = 0;
-        var maxDepth = 0;
-
-        const textBoxes = l3_BusinessProcess.map(processElements => {
-            maxDepth = Math.max(maxDepth, processElements.length);
-
-            return processElements.map(processElement => {
-                const text = this._map_Data_To_Text(processElement["Name"], DEFAULT_WIDTH),
-                      height = text.height;
-
-                maxHeight = Math.max(maxHeight, height);
-
-                return { text: text, status: processElement["Status"] };
-            })
-        });
-
-        maxHeight = Math.max(maxHeight, DEFAULT_HEIGHT);
-
-        const l3ShapeGroups = textBoxes.map(textObjects => 
-            textObjects.map(textObject => {
-                const textBox = textObject.text, status = textObject.status;
-
-                return this._map_Text_To_Group(textBox, status, maxHeight);
-            })
-        );
-        
-        const l3Height = maxHeight * maxDepth; 
-
-        const l3Shape = this._map_Data_To_Group(L3_BUSINESS_PROCESS, WORKFLOW_LEVEL, DEFAULT_WIDTH, l3Height);
-        
-        const l1ElementWidth = [];
-
-        const l2ShapeGroups = l2_BusinessProcess.map(processElements => {
-            l1ElementWidth.push(processElements.length * DEFAULT_WIDTH);
-
-            return processElements.map(processElement => 
-                this._map_Data_To_Group(processElement, L2_BUSINESS_PROCESS, DEFAULT_WIDTH, maxHeight)
-            )
-        });
-        const l2Shape = this._map_Data_To_Group(L2_BUSINESS_PROCESS, WORKFLOW_LEVEL, DEFAULT_WIDTH, maxHeight);
-        
-        const portfolioElementWidth = [];
-
-        const l1ShapeGroups = l1_BusinessProcess.map((processElements, index) => {
-            portfolioElementWidth.push(processElements.length * l1ElementWidth[index]);
-
-            return processElements.map(processElement =>
-                this._map_Data_To_Group(processElement, L1_BUSINESS_PROCESS, l1ElementWidth[index], maxHeight));
-        });
-        const l1Shape = this._map_Data_To_Group(L1_BUSINESS_PROCESS, WORKFLOW_LEVEL, DEFAULT_WIDTH, maxHeight);
-
-        let workStreamElementWidth = 0;
-
-        const portfolioShapeGroups = portfolio.map((processElements, index) => {
-            workStreamElementWidth += (portfolioElementWidth[index] * processElements.length);
-
-            return processElements.map(processElement =>
-                this._map_Data_To_Group(processElement, PORTFOLIO, portfolioElementWidth[index], maxHeight));
-        });
-
-        const portfolioShape = this._map_Data_To_Group(PORTFOLIO, WORKFLOW_LEVEL, DEFAULT_WIDTH, maxHeight);
-
-        const workStreamShapeGroups = workStream.map((processElements, index) =>
-            processElements.map(processElement =>
-                this._map_Data_To_Group(processElement, WORKSTREAM, workStreamElementWidth, maxHeight)
-        ));
-        const workStreamShape = this._map_Data_To_Group(WORKSTREAM, WORKFLOW_LEVEL, DEFAULT_WIDTH, maxHeight);
-
-        return (
-            {
-                workStreamShapes: {
-                    level: workStreamShape, 
-                    shapes: workStreamShapeGroups
-                },
-                portfolioShapes: {
-                    level: portfolioShape,
-                    shapes: portfolioShapeGroups
-                },
-                l1Shapes: {
-                    level: l1Shape, 
-                    shapes: l1ShapeGroups
-                },
-                l2Shapes: {
-                     level: l2Shape, 
-                     shapes: l2ShapeGroups 
-                },
-                l3Shapes: {
-                    level: l3Shape,
-                    shapes: l3ShapeGroups
-                },
-                maxHeight: maxHeight
-            }
-        )
-    }
-
-    _map_Data_To_Group = (name, status, tWidth, tHeight) => {
-        if(name == undefined || name == null)
-            return null;
-        
-        const color = this._determine_Color(status);
-
-        if(color == null) {
-            console.error("Please make sure every element has a color.\n");
-            return null;
-        }
-        
-        const text = this._map_Data_To_Text(name, tWidth);
-
-        // get the text from workflow data element
-        const rect = this._rectangle(color, tWidth, tHeight);
-
-        return new fabric.Group([rect, text], {
-            width: tWidth,
-            height: tHeight
-        });
-    }
-
-    /* map an object representing a workflow
-       data element into a shape and text
-       object and group them together */
-    _map_Text_To_Group = (text, status, height) => {
-        if(text == undefined || text == null)
-            return null;
-
-        const color = this._determine_Color(status);
-
-        if(color == null) {
-            console.error("Please make sure every element has a color.\n");
-            return null;
-        }
-        
-        const textWidth = text.width;
-        // get the text from workflow data element
-        const rect = this._rectangle(color, textWidth, height);
-
-        return new fabric.Group([rect, text], {
-            width: textWidth,
-            height: height
-        });
-    }
-
-    // map text into a fabricjs text object
-    _map_Data_To_Text = (text, width) => {
-
-        if( text == undefined && text == null && text == "")
-            return null;
-        
-            // fabricjs text object
-            // the text argument is a string
-        const textBox = new fabric.Textbox(text, {
-            fontSize: 16, // size of text
-            originX: 'center', // horizontal orientation to origin
-            originY: 'center', // vertical orientation to origin
-            fixedWidth: width,
-            width: width,
-            textAlign: 'center'
-        });
-        
-        const height = textBox.height;
-        
-        return textBox;
-    }
-
-    // returns a rectangle object 
-    _rectangle = (color, width, height) =>
-        (
-            // fabric js rectangle
-            new fabric.Rect({
-                fill: color,
-                width: width,
-                height: height, 
-                stroke: 'white', // border color
-                strokeWidth: 2, // border width
-                originX: 'center', // horizontal orientation to origin
-                originY: 'center' // vertical orientation to origin
-            })
-        );
+        if(dataToMap == undefined || dataToMap == null)
+            throw NoDataError;
     
-    // determine the color of a rectangle
-    _determine_Color = status => {
-        if(status == undefined && status == null)
-             return null;
-        
-        return colorMap[status];
+        const content = dataToMap.Content;
+        var collection = [];
+
+        content.forEach(item => collection.push(this._map_To_Group(item)));
+
+        return collection;
     }
 }

@@ -11,7 +11,7 @@ export class Label extends Shape {
         this._text = "";
         this._height = labelHeight;
         this._textColor = "#000000";
-        this.label = this.makeShape(status, statusColor)
+        this.label = this.makeShape(status, statusColor);
     }
 
     makeShape = (status, statusColor) => {

@@ -1,16 +1,7 @@
-import { fabric } from "fabric";
 import { Label } from "./Label";
-import { nonMaturityStatuses } from "./nonMaturityStatuses";
-
-//import { colorMap } from "./Components/colorMap";
 
 export class Legend { 
-    /*get Shapes() { return this._shapes; }
-    set Shapes(shapes) {this._shapes = shapes; }
-
-    get Colors() { return this._colors; }
-    set Colors(colors) { this._col; }
-    */
+   
     constructor(TotalY, offsetX, map) {
         this.TotalY = TotalY;
         this.offsetX = offsetX;
@@ -20,8 +11,6 @@ export class Legend {
         this.labelHeight = 30;
         this.offsetFromDiagram = 30;
         this.legend = this.make_Legend();
-
-        console.log(this.mapColors)
     
     }
 
@@ -31,19 +20,10 @@ export class Legend {
         this._rect = new Label(this.status[1], this.colors[1], this.labelHeight);
         
         this.status.forEach(colorName => {
-            /*
-            var maturityStatus = true;
-            nonMaturityStatuses.forEach(status => {
-                if (colorName == status) {
-                    maturityStatus = false;
-                }
-            });*/
-            //console.log(this.mapColors[colorName])
-
             if (this.mapColors[colorName]['maturityStatus'] == 'Maturity') {
-                //console.log(this.mapColors[colorName]['maturityStatus'])
+               
                 this.colorStatus = this.mapColors[colorName]['color'];
-                //console.log(this.colorStatus)
+
                 this.arrayLegend.push(new Label(colorName, this.colorStatus, this.labelHeight));
             }
         });

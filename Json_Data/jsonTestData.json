@@ -68,11 +68,6 @@
                         {
                             "Name": "Supply Chain and Purchasing (SC&P)"
                         }
-                    ],
-                    [
-                        {
-                            "Name": "Finance"
-                        }
                     ]
                 ]
             },
@@ -82,11 +77,18 @@
                     [
                         {
                             "Name": "Order To Cash"
+
                         }
                     ],
                     [
                         {
-                            "Name": "Procure to Pay"
+                            "Name": "Procure to Pay",
+                            "Children": [
+                                {
+                                    "Name": "Recieve Orders",
+                                    "Status": "Medium Maturity"
+                                }
+                            ]
                         }
                     ],
                     [
