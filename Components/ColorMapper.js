@@ -12,7 +12,7 @@ export class ColorMapper{
 
     // add a new status to the mapped statuses if not
     // already mapped
-    _addNewstatus(status, colorStatus, brightness){
+    addNewstatus = (status, colorStatus, brightness) => {
         
         if(this._statuses[status] == undefined) {
             this._colorMap[status] = colorStatus;
@@ -24,13 +24,11 @@ export class ColorMapper{
     }
 
     // get the statuses
-    _getdata(){
-        return this._statuses;
-    }
+    _getdata = () => this._statuses;
 
     // generate a random color and its respective brightness
     // for a given status
-    _generate_Status = (status) => {
+    generate_Status = status => {
         var newColor;
         var brightness;
         // as long as it is to bright or too dark
@@ -55,7 +53,7 @@ export class ColorMapper{
     // the hex bits that represent the 
     // rgb (red,green,blue) values of
     // the given color
-    brightness_Calc = (color) => {
+    brightness_Calc = color => {
         var c = color.substring(1);
         var rgb = parseInt(c, 16);
         var r = (rgb >> 16) & 0xff;
@@ -67,11 +65,44 @@ export class ColorMapper{
         return lumi;
     }
 
-    _printData(){
+    _printData = () => {
         var newstatuses = this._getdata();
             Object.keys(newstatuses).forEach(function(key){
                 console.log(key, newstatuses[key]);
             });
+    }
+
+    assign_Color_To_Group = shapeCollection => {
+        if(this.is_ColorMap_Empty())
+            return null;
+        
+        
+    }
+
+    _mapColorToShape = (shape) => {
+        var status = shape.Status;
+       
+        // give it a status and generate random colors and
+        // their respective brightness for statuses that don't 
+        // already map to a color. if the status exists then just map it
+        
+        if(this.ColorMap[status] != undefined) {
+            var colorStatus = this.ColorMap[status];
+            var color = colorStatus.color;
+            var brightness = this.brightness_Calc(color);
+            this.addNewstatus(status, colorStatus, brightness);
         }
+         else
+            this.generate_Status(status);
     
+        // the text color should be black for lighter colors and 
+        // white for darker colors
+        shape.adjustTextColor(this._brightness[status]);
+    }
+
+    is_ColorMap_Empty = () => this._colorMap == null || this._colorMap == undefined ? true : false;
+    
+    is_Status_Empty = () => this._statuses == null || this._statuses == undefined ? true : false;
+
+    is_Brightness_Empty = () => this._brightness == null || this._brightness == undefined ? true : false;
 }

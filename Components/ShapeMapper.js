@@ -63,10 +63,10 @@ export class ShapeMapper {
             var colorStatus = this.ColorMap[status];
             var color = colorStatus.color;
             var brightness = this.mappedcolors.brightness_Calc(color);
-            this.mappedcolors._addNewstatus(status, colorStatus, brightness);
+            this.mappedcolors.addNewstatus(status, colorStatus, brightness);
         }
          else {
-            this.mappedcolors._generate_Status(status);
+            this.mappedcolors.generate_Status(status);
             this.ColorMap[status] = this.mappedcolors._colorMap[status];
          }
     
