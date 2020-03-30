@@ -9,7 +9,7 @@ export class Canvas {
     constructor(diagram, width, height, legends) {
         // create a new static canvas that the diagram will be 
         // drawn onto
-        this.canvas = new fabric.StaticCanvas(null, {
+        this.canvas = new fabric.Canvas(null, {
             backgroundColor:'white', width: width, height: height});
         
         // add all the items in the diagram to the canvas

@@ -1,4 +1,4 @@
-import { ShapeCollectionError } from "../Errors/DataErrors";
+import { ShapeCollectionError } from "../../Errors/DataErrors";
 
 
 export class DiagramMaker {

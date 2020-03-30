@@ -1,45 +1,48 @@
-import { diagramData } from "../Components/Parser"; 
-import { Canvas } from "../Components/Canvas";
-import { ImageMaker } from "../Components/ImageMaker";
-import { ShapeMapper } from "../Components/ShapeMapper";
-import { DiagramMaker } from "../Components/DiagramMaker";
-import {ColorMapper} from "../Components/ColorMapper"
-import { Legend } from "../Components/Legends";
+// retrieves all the necessary classes for building diagrams
+import * as Canvas from "../DiagramClasses/Canvas_Module";
 
-export function main() {
-  const shapeMapper = new ShapeMapper(diagramData, new ColorMapper(diagramData.ColorMap));
+export const apiCanvas = (req, res, next) => {
+      // get some data
+      const diagramData = req.diagramData;
 
-  const collection = get_Collection(shapeMapper);
-  const colorMap = get_ColorMap(diagramData);
+      // create all of the shapes based on the data
+      const shapeMapper = new Canvas.ShapeMapper(diagramData, new Canvas.ColorMapper(diagramData.ColorMap));
 
-  const ColorMap = new ColorMapper(colorMap);
+      const collection = get_Collection(shapeMapper);
+      const colorMap = get_ColorMap(diagramData);
+      const ColorMap = new Canvas.ColorMapper(colorMap);
 
-  const diagramMaker = new DiagramMaker(collection);
+      // create the diagram by giving the shapes a location
+      const diagramMaker = new Canvas.DiagramMaker(collection);
   
-  const totalX = get_TotalX(diagramMaker),
-        offsetX = get_offSetX(diagramMaker),
-        offsetY = get_offSetY(diagramMaker);
+      const totalX = get_TotalX(diagramMaker),
+            offsetX = get_offSetX(diagramMaker),
+            offsetY = get_offSetY(diagramMaker);
   
-  let totalY = get_TotalY(diagramMaker);
+      let totalY = get_TotalY(diagramMaker);
 
-  const legends = new Legend(totalY, offsetX, shapeMapper.mappedcolors);
+      // create a legend to hold information about the statuses of each diagram element
+      // for a business process
+      const legends = new Canvas.Legend(totalY, offsetX, shapeMapper.mappedcolors);
 
-        totalY = get_TotalY(legends);
+      totalY = get_TotalY(legends);
 
-  const canvas = new Canvas(diagramMaker.Shapes,  totalX + offsetX, totalY + offsetY, legends);
-  
-  const imageMaker = new ImageMaker(canvas.canvas);
+      // create a new canvas based on legend and shape data
+      const staticCanvas = new Canvas.Canvas(diagramMaker.Shapes,  totalX + offsetX, totalY + offsetY, legends);
+
+      // send the canvas to the user
+      res.json({Canvas: staticCanvas})
 }
 
 const get_ColorMap = obj => {
       if(obj == null || obj == undefined)
             return null;
-      
+    
       const colorMap = obj.ColorMap;
 
       if(colorMap == null || colorMap == undefined)
             return null;
-      
+    
       return colorMap;
 }
 
@@ -102,7 +105,4 @@ const get_offSetY = diagramMaker => {
       
       return offsetY;   
 }
-
-main();
-
 

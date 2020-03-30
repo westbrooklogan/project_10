@@ -1,5 +1,5 @@
 import { fabric } from "fabric";
-import { NoStatusError, NoTextError, BadRectangleError, BadTextBoxError } from "../Errors/DataErrors";
+import { NoStatusError, NoTextError, BadRectangleError, BadTextBoxError } from "../../Errors/DataErrors";
 
 var RECT = 0;
 var TEXT = 1;

@@ -1,5 +1,5 @@
 import { Shape } from "./Shape";
-import { NoDataError } from "../Errors/DataErrors";
+import { NoDataError } from "../../Errors/DataErrors";
 //import { colorMap } from "./colorMap";
 import { ColorMapper } from "./ColorMapper";
 
